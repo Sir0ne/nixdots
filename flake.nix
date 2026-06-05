@@ -48,10 +48,7 @@
   in {
     nixosConfigurations = {
       laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
-<<<<<<< HEAD
-=======
       goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
     };
   };
 }

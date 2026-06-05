@@ -16,14 +16,12 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-<<<<<<< HEAD
     output   = "",
     mode     = "preferred",
     position = "auto",
     scale    = "auto",
 })
-
-=======
+hl.monitor ({
     output   = "DP-2",
     mode     = "1920x1080@60.00",
     position = "auto",
@@ -35,7 +33,6 @@ hl.monitor({
    position  = "auto",
    scale     = "auto",
 })
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -175,25 +172,15 @@ hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
-<<<<<<< HEAD
-=======
 -- window rules
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
 hl.window_rule({
     name = "kitty",
     match = {
       class = "kitty"
     },
-<<<<<<< HEAD
     opacity = "0.8"
 })
 
-=======
-    opacity = 0.85
-})
-
-
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
     dwindle = {
@@ -302,10 +289,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
-<<<<<<< HEAD
-=======
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle"}))
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })

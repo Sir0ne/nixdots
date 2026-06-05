@@ -10,10 +10,7 @@
       ./vesktop
       ./stylix
       ./waybar
-<<<<<<< HEAD
-=======
       ./games/retroarch
       ./games/prismlauncher
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
     ];
   }

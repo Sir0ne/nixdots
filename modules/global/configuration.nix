@@ -4,19 +4,13 @@
   
   imports = [
     ../sddm
-<<<<<<< HEAD
-  ]; 
- 
-  modules.sddm.enable = true;
-=======
     ../games/steam
   ]; 
-
+ 
   modules = {
     sddm.enable  = true;
     steam.enable = true;
   };
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -120,11 +114,8 @@
 
     protectKernelImage = true;
   };
-<<<<<<< HEAD
-=======
 
   nixpkgs.config.allowUnfree = true;
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
   
   security.rtkit.enable = true;
   services.pipewire = {

@@ -10,12 +10,9 @@ in {
         user.name = "Sir0ne";
         user.email = "vivian@hausofwong.com";
       };
-<<<<<<< HEAD
-=======
       extraConfig = {
         init.defaultBranch = "main";
       };
->>>>>>> c0ba694 (add: games modules (steam, prism, retroarch))
     };
   };
 }

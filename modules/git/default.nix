@@ -12,6 +12,9 @@ in {
       };
       extraConfig = {
         init.defaultBranch = "main";
+        safe = {
+	  directory = "/home/goofy/dotfiles";
+        };
       };
     };
   };

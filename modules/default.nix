@@ -10,6 +10,7 @@
       ./vesktop
       ./stylix
       ./waybar
+      ./fish
       ./games/retroarch
       ./games/prismlauncher
     ];

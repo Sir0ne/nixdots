@@ -12,5 +12,6 @@
     hyprland.enable = true;
     retroarch.enable = true;
     prismlauncher.enable = true;
+    fish.enable = true;
   };
 } 

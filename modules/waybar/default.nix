@@ -23,9 +23,30 @@ in {
               "3" = [];
 	    };
           };
+ 
+          "hyprland/window" = {
+	    format = "{}";
+            rewrite = {
+	      "(.*) — Zen Browser" = "Zen Browser";
+              "(.*) - fish" = "> [$1]";
+              "(.*) - Discord" = "$1 - Discord";
+              "(.*) \\| Vesktop" = "$1 - Discord";
+              "^Discord$" = "General - Discord";
+              "windowrule" = [
+                {
+		  name = "discord-title-format";
+		  match = {
+		    class = "^(discord|vesktop)$";
+		  };
+                  group = { new = "lock"; };
+                }
+	       ];
+            };
+            seperate-outputs = true;
+          };
 
           "tray" = {
-            spacing = 14;
+            spacing = 5;
             iconts = "{}";
             show-passive-items = true;
           };

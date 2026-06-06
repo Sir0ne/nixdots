@@ -5,22 +5,25 @@ let
   mainMod = "SUPER";
   lua = lib.generators.mkLuaInline;
   bind = keys: dispatcher: { _args = [keys dispatcher ];};
+  bindOpts = keys: dispatcher: opts: { _args = [keys dispatcher opts]; };
   dsp = {
-    exec       = cmd: lua ''hl.dsp.exec_cmd("${cmd}")'';
-    close      = lua "hl.dsp.window.close()";
+    exec = cmd: lua ''hl.dsp.exec_cmd("${cmd}")'';
+    close = lua "hl.dsp.window.close()";
     fullscreen = lua "hl.dsp.window.fullscreen()";
-    focusWorkspace = ws: lua ''hl.dsp.focus({ workspaces = "${toString ws}" })'';
+    focusWorkspace = ws: lua ''hl.dsp.focus({ workspace = "${toString ws}" })'';
     moveToWorkspace = ws: lua ''hl.dsp.window.move({ workspace = "${toString ws}" })'';
     focus = dir: lua ''hl.dsp.focus({ direction = "${dir}" })'';
+    drag = lua "hl.dsp.window.drag()";
+    resize = lua "hl.dsp.window.resize()";
   };
   workspaceBinds = lib.concatMap ( i:
     let key = toString (lib.mod i 10);
     in [
-     (bind "${mainMod} + ${key}" (dsp.focusWorkspace i))
-     (bind "${mainMod} + SHIFT + ${key}" (dsp.moveToWorkspace i))
+     (bind "SUPER + ${key}" (dsp.focusWorkspace i))
+     (bind "SUPER + SHIFT + ${key}" (dsp.moveToWorkspace i))
     ]
   ) (lib.range 1 10);
-  
+ 
 in  {
   options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
   config = mkIf cfg.enable {
@@ -43,18 +46,19 @@ in  {
 	}];
     
         bind = [
-	  (bind "${mainMod} + RETURN" (dsp.exec "kitty"))
-	  (bind "${mainMod} + C" dsp.close)
-          (bind "${mainMod} + Z" (dsp.exec "zen-browser"))
-          (bind "${mainMod} + F" dsp.fullscreen)
-          (bind "${mainMod} + SPACE" (dsp.exec "fuzzel"))
-          (bind "${mainMod} + left" (dsp.focus "left"))
-          (bind "${mainMod} + right" (dsp.focus "right"))
-          (bind "${mainMod} + up" (dsp.focus "up"))
-          (bind "${mainMod} + down" (dsp.focus "down"))
+	  (bind "SUPER + RETURN" (dsp.exec "kitty"))
+	  (bind "SUPER + C" (dsp.close))
+          (bind "SUPER + Z" (dsp.exec "zen-beta"))
+	  (bind "SUPER + F" (dsp.fullscreen))
+          (bind "SUPER + left" (dsp.focus "left"))
+          (bind "SUPER + right" (dsp.focus "right"))
+          (bind "SUPER + up" (dsp.focus "up"))
+          (bind "SUPER + down" (dsp.focus "down"))
           (bind "SUPER + mouse_down" (dsp.focusWorkspace "e+1"))
           (bind "SUPER + mouse_up" (dsp.focusWorkspace "e-1"))
-        ];
+          (bindOpts "SUPER + mouse:272" dsp.drag { mouse = true; })
+          (bindOpts "SUPER + mouse:273" dsp.resize { mouse = true; })
+        ] ++ workspaceBinds;
       };
     };
     

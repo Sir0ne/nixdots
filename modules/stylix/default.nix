@@ -10,6 +10,11 @@ in  {
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
       image = ../../assets/backgrounds/nixos.png;
+      cursor = {
+ 	name = "Bibata-Modern-Classic";
+        package = pkgs.bibata-cursors;
+        size = 24;
+      };
     }; 
   };
 }

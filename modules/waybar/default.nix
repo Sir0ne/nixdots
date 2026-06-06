@@ -24,6 +24,12 @@ in {
 	    };
           };
 
+          "tray" = {
+            spacing = 14;
+            iconts = "{}";
+            show-passive-items = true;
+          };
+
           "cpu" = {
 	    format = "{}%  ";
           };
@@ -31,15 +37,10 @@ in {
           "memory" = {
 	    format = "{}%  ";
           };
-          
-          "tray" = {
-            spacing = 5;
-            iconts = "{} ";
-          };
 
           "custom/wlogout" = {
             on-click = "wlogout";
-            format = "{}⏻  ";
+            format = "{} ⏻  ";
           };
         };
       };

@@ -1,10 +1,10 @@
 # nixdots
 Dotfiles for goofy and goofy jr
 
-- [] Sorting out modules
-- [] Theming hyprland
-- [] Adding wayfire
-- [] Eating
+- [ ] Sorting out modules
+- [ ] Theming hyprland
+- [ ] Adding wayfire
+- [ ] Eating
 
 ---
 

@@ -18,8 +18,11 @@
 
   programs.dconf.enable = true;
   environment.defaultPackages = [];
+  
   services.xserver.desktopManager.xterm.enable = false;
   programs.fish.enable = true;
+
+  services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim git
@@ -129,7 +132,13 @@
     pulse.enable = true;
   };
   
-  hardware.graphics.enable = true;  
+  hardware = {
+    graphics.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+  }; 
 
   system.stateVersion = "26.11";
 }

@@ -6,7 +6,6 @@
     ../sddm
     ../games/steam
   ]; 
- 
   modules = {
     sddm.enable  = true;
     steam.enable = true;
@@ -72,6 +71,11 @@
       limine = {
         enable = true;
         enableEditor = false;
+        extraEntries = ''
+	  /Windows
+	    protocol: efi
+            path: uuid(E408203B08200EDC):/EFI/Microsoft/Boot/bootmgfw.efi
+        '';
       };
       efi.canTouchEfiVariables = true;
       timeout = 10;

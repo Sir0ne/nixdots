@@ -77,11 +77,11 @@
         extraEntries = ''
 	  /Windows
 	    protocol: efi
-            path: uuid(E408203B08200EDC):/EFI/Microsoft/Boot/bootmgfw.efi
+            path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
         '';
       };
       efi.canTouchEfiVariables = true;
-      timeout = 10;
+      timeout = 0;
     };
   };
 

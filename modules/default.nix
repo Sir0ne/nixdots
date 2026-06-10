@@ -13,5 +13,6 @@
       ./fish
       ./games/retroarch
       ./games/prismlauncher
+      ./github-cli
     ];
   }

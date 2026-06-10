@@ -101,7 +101,7 @@
             owner = "0x182d4454fb211940";
             repo = "ilo-sitelen";
             rev = "master";
-            sha256 = "sha256-caQVPBPuZjOwbtcDhxAdmG7PHXe50OeSLkSBoCtMcrQ="; # Replace with actual hash if mismatched
+            hash = "sha256-caQVPBPuZjOwbtcDhxAdmG7PHXe50OeSLkSBoCtMcrQ="; # Replace with actual hash if mismatched. May need if updated
       };
 
         nativeBuildInputs = with pkgs; [ cmake pkg-config ];

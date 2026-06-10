@@ -11,5 +11,6 @@
     waybar.enable = true;
     hyprland.enable = true;
     retroarch.enable = true;
+    github-cli.enable = true;
   };
  }

@@ -13,8 +13,16 @@ in {
           position = "top";
           modules-left = [ "hyprland/workspaces" "hyprland/window" ];
           modules-center = [ "clock" ];
-          modules-right = [ "backlight" "cpu" "memory" "tray" "custom/wlogout"  ];
+          modules-right = [ "custom/fcitx5" "backlight" "cpu" "memory" "tray" "custom/wlogout"  ];
           
+          "custom/fcitx5" = {
+	    exec = "fcitx5-remote -n";
+            interval = 1;
+            format = "󰌌 {}";
+            tooltip = "Toggle input";
+            on-click = "fcitx5-remote -t";
+          };
+
           "hyprland/workscapes" = {
 	    all-outputs = true;
             persistent-workspaces = {

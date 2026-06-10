@@ -13,7 +13,7 @@ in {
           position = "top";
           modules-left = [ "hyprland/workspaces" "hyprland/window" ];
           modules-center = [ "clock" ];
-          modules-right = [ "cpu" "memory" "tray" "custom/wlogout"  ];
+          modules-right = [ "backlight" "cpu" "memory" "tray" "custom/wlogout"  ];
           
           "hyprland/workscapes" = {
 	    all-outputs = true;

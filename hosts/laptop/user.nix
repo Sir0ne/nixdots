@@ -10,5 +10,6 @@
     stylix.enable = true;
     waybar.enable = true;
     hyprland.enable = true;
+    retroarch.enable = true;
   };
  }

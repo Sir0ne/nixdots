@@ -34,7 +34,8 @@ in {
       settings = {
         video_driver = "vulkan";
         netplay_nickname = "ToadHog";
-        menu_driver = "xmb";
+        menu_driver = "ozone";
+        ozone_menu_color_theme = "Nord";
       };
     };
     home.file = lib.mapAttrs' (name: source: {

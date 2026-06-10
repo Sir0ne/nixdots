@@ -25,7 +25,7 @@
   services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
-    vim git
+    vim git papirus-icon-theme
   ];
   
   fonts = {

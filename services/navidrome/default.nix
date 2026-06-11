@@ -3,11 +3,9 @@
   config,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.services.navidrome;
-in
-{
+in {
   options.services.navidrome = {
     enable = mkEnableOption "Navidrome";
   };
@@ -15,8 +13,8 @@ in
     services.navidrome = {
       enable = true;
       settings = {
-	Port = 4533;
-	Address = "127.0.0.1";
+        Port = 4533;
+        Address = "127.0.0.1";
       };
       user = "navidrome";
     };

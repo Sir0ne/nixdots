@@ -1,6 +1,10 @@
-{ config, lib, inputs, ...  }: { 
-
-  imports = [../../modules/default.nix ];
+{
+  config,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [../../modules/default.nix];
   config.modules = {
     zen-browser.enable = true;
     fuzzel.enable = true;
@@ -14,4 +18,4 @@
     prismlauncher.enable = true;
     fish.enable = true;
   };
-} 
+}

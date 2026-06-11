@@ -13,6 +13,7 @@
       defaultFonts.emoji = ["OpenMoji Color"];
     };
   };
+
   programs = {
     hyprland = {
       enable = true;
@@ -28,12 +29,24 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
     displayManager.sddm = {
       enable = true;
       wayland = {
         enable = true;
         compositor = "kwin";
       };
+    };
+  };
+
+  i18n.inputMethod = {
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      settings.addons = with pkgs; [
+        fcitx5-table-extra
+        fcitx5-gtk
+      ];
     };
   };
 

@@ -12,9 +12,15 @@
     xserver.desktopManager.xterm.enable = false;
     openssh = {
       enable = true;
+      allowSFTP = false;
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
+        AllowTcpForwarding = "yes";
+        X11Forwarding = "no";
+        AllowAgentForwarding = "no";
+        AllowStreamLocalForwarding = "no";
+        AuthenticationMethods = "publickey";
       };
       openFirewall = true;
     };
@@ -67,12 +73,14 @@
       "wheel"
     ];
     shell = pkgs.fish;
+    openssh.authorizedKeys.keys = [ "/etc/ssh/ssh_host_ed25519_key" ];
   };
 
   sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/user/.config/sops/age/keys.txt";
+    age.keyFile = "/home/goofy/.config/sops/age/keys.txt";
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
       example-key = { };
       "myservice/my_subdir/my_secret" = { };

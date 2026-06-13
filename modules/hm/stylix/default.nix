@@ -5,11 +5,15 @@
   inputs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.stylix;
-in {
-  imports = [inputs.stylix.homeModules.stylix];
-  options.modules.stylix = {enable = mkEnableOption "stylix";};
+in
+{
+  imports = [ inputs.stylix.homeModules.stylix ];
+  options.modules.stylix = {
+    enable = mkEnableOption "stylix";
+  };
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
@@ -21,6 +25,8 @@ in {
         package = pkgs.bibata-cursors;
         size = 24;
       };
+
+      targets.zen-browser.profileNames = [ "user" ];
     };
   };
 }

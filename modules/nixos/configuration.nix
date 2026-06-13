@@ -1,10 +1,24 @@
 # Keep configuration as bare as possible
 # This is to keep unnecessary services out of servers
-{pkgs, ...}: {
+{ pkgs, inputs, ... }:
+{
+  imports = [
+    inputs.sops-nix.nixosModules.sops
+  ];
   programs.dconf.enable = true;
-  environment.defaultPackages = [];
+  environment.defaultPackages = [ ];
   programs.fish.enable = true;
-  services.xserver.desktopManager.xterm.enable = false;
+  services = {
+    xserver.desktopManager.xterm.enable = false;
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
+      openFirewall = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     vim
@@ -13,7 +27,7 @@
 
   nix = {
     settings.auto-optimise-store = true;
-    settings.allowed-users = ["goofy"];
+    settings.allowed-users = [ "goofy" ];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -61,7 +75,7 @@
       enable = true;
       extraRules = [
         {
-          users = ["goofy"];
+          users = [ "goofy" ];
           keepEnv = true;
           persist = true;
         }

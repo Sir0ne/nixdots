@@ -4,10 +4,14 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.nvim;
-in {
-  options.modules.nvim = {enable = mkEnableOption "neovim";};
+in
+{
+  options.modules.nvim = {
+    enable = mkEnableOption "neovim";
+  };
   config = mkIf cfg.enable {
     programs.neovim = {
       enable = true;
@@ -17,7 +21,7 @@ in {
         conform-nvim
       ];
 
-      extraLuaConfig = ''
+      initLua = ''
         -- Configure Linting (Statix & Deadnix)
         local lint = require('lint')
         lint.linters_by_ft = {

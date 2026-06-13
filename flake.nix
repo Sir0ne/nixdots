@@ -16,47 +16,53 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ {
-    home-manager,
-    nixpkgs,
-    ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    lib = nixpkgs.lib;
+  outputs =
+    inputs@{
+      home-manager,
+      nixpkgs,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+      lib = nixpkgs.lib;
 
-    mkSystem = pkgs: system: hostname:
-      pkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          {networking.hostName = hostname;}
-          ./modules/nixos/configuration.nix
-          ./hosts/${hostname}/user.nix
+      mkSystem =
+        pkgs: system: hostname:
+        pkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            { networking.hostName = hostname; }
+            ./modules/nixos/configuration.nix
+            ./hosts/${hostname}/user.nix
 
-          (./. + "/hosts/${hostname}/hardware-configuration.nix")
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              extraSpecialArgs = {inherit inputs;};
-              backupFileExtension = "baka";
+            (./. + "/hosts/${hostname}/hardware-configuration.nix")
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                extraSpecialArgs = { inherit inputs; };
+                backupFileExtension = "baka";
 
-              # Sets users.goofy to have specific modules in default.nix
-              # This means that I can have nixos options per user.nix
-              users.goofy = import ./modules/hm/default.nix;
-            };
-          }
-        ];
-        specialArgs = {inherit inputs;};
+                # Sets users.goofy to have specific modules in default.nix
+                # This means that I can have nixos options per user.nix
+                users.goofy = import ./modules/hm/default.nix;
+              };
+            }
+          ];
+          specialArgs = { inherit inputs; };
+        };
+    in
+    {
+      nixosConfigurations = {
+        laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
+        goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
       };
-  in {
-    formatter.x86_64-linux = pkgs.alejandra;
-    nixosConfigurations = {
-      laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
-      goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
     };
-  };
 }

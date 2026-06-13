@@ -4,10 +4,14 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.waybar;
-in {
-  options.modules.waybar = {enable = mkEnableOption "waybar";};
+in
+{
+  options.modules.waybar = {
+    enable = mkEnableOption "waybar";
+  };
   config = mkIf cfg.enable {
     programs.waybar = {
       enable = true;
@@ -16,9 +20,19 @@ in {
         mainBar = {
           layer = "top";
           position = "top";
-          modules-left = ["hyprland/workspaces" "hyprland/window"];
-          modules-center = ["clock"];
-          modules-right = ["custom/fcitx5" "backlight" "cpu" "memory" "tray" "custom/wlogout"];
+          modules-left = [
+            "hyprland/workspaces"
+            "hyprland/window"
+          ];
+          modules-center = [ "clock" ];
+          modules-right = [
+            "custom/fcitx5"
+            "backlight"
+            "cpu"
+            "memory"
+            "tray"
+            "custom/wlogout"
+          ];
 
           "custom/fcitx5" = {
             exec = "fcitx5-remote -n";
@@ -31,9 +45,9 @@ in {
           "hyprland/workscapes" = {
             all-outputs = true;
             persistent-workspaces = {
-              "1" = [];
-              "2" = [];
-              "3" = [];
+              "1" = [ ];
+              "2" = [ ];
+              "3" = [ ];
             };
           };
 
@@ -51,7 +65,9 @@ in {
                   match = {
                     class = "^(discord|vesktop)$";
                   };
-                  group = {new = "lock";};
+                  group = {
+                    new = "lock";
+                  };
                 }
               ];
             };

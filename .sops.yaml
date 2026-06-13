@@ -1,0 +1,7 @@
+keys:
+  - &pluto age1fxj09c9qwqwu56fclpvl8xym63znw66q22g775htxyyvw4khgqsqmf9jav
+creation_rules:
+  - path_regex: secrets/secrets.yaml
+    key_groups:
+      - age:
+          - *pluto

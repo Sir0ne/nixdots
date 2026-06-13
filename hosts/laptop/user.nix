@@ -40,12 +40,30 @@
   };
 
   i18n.inputMethod = {
+    enable = true;
     type = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
-      settings.addons = with pkgs; [
+      addons = with pkgs; [
         fcitx5-table-extra
         fcitx5-gtk
+        (pkgs.stdenv.mkDerivation {
+          pname = "ilo-sitelen";
+          version = "unstable-2023";
+
+          src = pkgs.fetchFromGitHub {
+            owner = "0x182d4454fb211940";
+            repo = "ilo-sitelen";
+            rev = "master";
+            hash = "sha256-caQVPBPuZjOwbtcDhxAdmG7PHXe50OeSLkSBoCtMcrQ="; #workaround until it gets pushed into nixpkgs 
+          };
+          nativeBuildInputs = with pkgs; [cmake pkg-config];
+          buildInputs = with pkgs; [fcitx5];
+
+          cmakeFlags = [
+            "-DCMAKE_BUILD_TYPE=Release"
+          ];
+        })
       ];
     };
   };

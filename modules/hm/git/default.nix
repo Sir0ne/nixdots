@@ -4,10 +4,14 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.git;
-in {
-  options.modules.git = {enable = mkEnableOption "git";};
+in
+{
+  options.modules.git = {
+    enable = mkEnableOption "git";
+  };
   config = mkIf cfg.enable {
     programs.git = {
       enable = true;
@@ -15,7 +19,7 @@ in {
         user.name = "Sir0ne";
         user.email = "vivian@hausofwong.com";
       };
-      extraConfig = {
+      settings = {
         init.defaultBranch = "main";
         safe = {
           directory = "/home/goofy/dotfiles";

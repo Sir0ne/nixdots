@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   fonts = {
     packages = with pkgs; [
       jetbrains-mono
@@ -10,7 +11,7 @@
     ];
     fontconfig = {
       hinting.autohint = true;
-      defaultFonts.emoji = ["OpenMoji Color"];
+      defaultFonts.emoji = [ "OpenMoji Color" ];
     };
   };
 
@@ -55,10 +56,13 @@
             owner = "0x182d4454fb211940";
             repo = "ilo-sitelen";
             rev = "master";
-            hash = "sha256-caQVPBPuZjOwbtcDhxAdmG7PHXe50OeSLkSBoCtMcrQ="; #workaround until it gets pushed into nixpkgs 
+            hash = "sha256-caQVPBPuZjOwbtcDhxAdmG7PHXe50OeSLkSBoCtMcrQ="; # workaround until it gets pushed into nixpkgs
           };
-          nativeBuildInputs = with pkgs; [cmake pkg-config];
-          buildInputs = with pkgs; [fcitx5];
+          nativeBuildInputs = with pkgs; [
+            cmake
+            pkg-config
+          ];
+          buildInputs = with pkgs; [ fcitx5 ];
 
           cmakeFlags = [
             "-DCMAKE_BUILD_TYPE=Release"

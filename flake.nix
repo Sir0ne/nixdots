@@ -55,6 +55,7 @@
                 users.goofy = import ./modules/hm/default.nix;
               };
             }
+            (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
           ];
           specialArgs = { inherit inputs; };
         };
@@ -63,6 +64,14 @@
       nixosConfigurations = {
         laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
         goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
+        iso = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+            ./hosts/iso/configuration.nix
+          ];
+        };
       };
     };
 }

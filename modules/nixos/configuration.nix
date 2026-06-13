@@ -69,6 +69,16 @@
     shell = pkgs.fish;
   };
 
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/user/.config/sops/age/keys.txt";
+    secrets = {
+      example-key = { };
+      "myservice/my_subdir/my_secret" = { };
+    };
+  };
+
   security = {
     sudo.enable = false;
     doas = {

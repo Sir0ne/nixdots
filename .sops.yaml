@@ -1,7 +1,7 @@
 keys:
-  - &pluto age1fxj09c9qwqwu56fclpvl8xym63znw66q22g775htxyyvw4khgqsqmf9jav
+  - &laptop age1r3syz7ccher088c4xfqqjh2ry0pyutdr3g6dck2phpe6pvar83jssyxpja
 creation_rules:
-  - path_regex: secrets/secrets.yaml
+  - path_regex: secrets/secrets.yaml$
     key_groups:
       - age:
-          - *pluto
+          - *laptop

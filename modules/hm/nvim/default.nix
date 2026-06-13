@@ -15,6 +15,7 @@ in
   config = mkIf cfg.enable {
     programs.neovim = {
       enable = true;
+      defaultEditor = true;
 
       plugins = with pkgs.vimPlugins; [
         nvim-lint

@@ -4,6 +4,14 @@
     inputs.disko.nixosModules.disko
     ./modules/nixos/disko/disk-config.nix
   ];
+
+  environment.defaultPackages = [
+    git
+    sops
+    lsblk
+    vim
+  ];
+
   users.users.goofy = {
     initialPassword = "test";
   };

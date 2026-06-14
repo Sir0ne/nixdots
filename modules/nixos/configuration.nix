@@ -16,11 +16,6 @@
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
-        AllowTcpForwarding = "yes";
-        X11Forwarding = "no";
-        AllowAgentForwarding = "no";
-        AllowStreamLocalForwarding = "no";
-        AuthenticationMethods = "publickey";
       };
       openFirewall = true;
     };

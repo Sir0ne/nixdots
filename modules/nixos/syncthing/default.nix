@@ -33,6 +33,13 @@ in
               "goofy"
             ];
           };
+          "ra-memcards" = {
+            path = "home/goofy/.config/retroarch/system/pcsx2/memcards";
+            devices = [
+              "laptop"
+              "goofy"
+            ];
+          };
         };
       };
     };

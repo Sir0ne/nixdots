@@ -11,7 +11,6 @@
     ./waybar
     ./fish
     ./nvim
-    ./syncthing
     ./games/retroarch
     ./games/prismlauncher
   ];

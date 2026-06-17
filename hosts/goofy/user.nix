@@ -2,9 +2,13 @@
 
   imports = [
     ../../modules/nixos/steam
+    ../../modules/nixos/syncthing
   ];
 
-  modules.steam.enable = true;
+  modules = {
+    steam.enable = true;
+    syncthing.enable = true;
+  };
 
   fonts = {
     packages = with pkgs; [

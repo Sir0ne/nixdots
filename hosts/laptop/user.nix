@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+
+  imports = [
+    ../../modules/nixos/syncthing
+  ];
+  modules.syncthing.enable = true;
   fonts = {
     packages = with pkgs; [
       jetbrains-mono

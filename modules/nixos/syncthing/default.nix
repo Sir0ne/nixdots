@@ -15,7 +15,8 @@ in
     services.syncthing = {
       enable = true;
       openDefaultPorts = true;
-      user = "users";
+      group = "users";
+      user = "goofy";
       dataDir = "/home/goofy/Sync";
       configDir = "/home/goofy/.config/syncthing";
       settings = {
@@ -37,7 +38,7 @@ in
             ];
           };
           "ra-memcards" = {
-            path = "home/goofy/.config/retroarch/system/pcsx2/memcards/;
+            path = "/home/goofy/.config/retroarch/system/pcsx2/memcards";
             devices = [
               "laptop"
               "goofy"

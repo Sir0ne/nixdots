@@ -48,9 +48,14 @@
       limine = {
         enable = true;
         enableEditor = false;
+        extraEntries = ''
+          	  /Windows
+          	    protocol: efi
+          	    path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+          	'';
       };
       efi.canTouchEfiVariables = true;
-      timeout = 1;
+      timeout = 10;
     };
   };
 

@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.steam;
-in {
+in
+{
   options.modules.steam = {
     enable = mkEnableOption "steam";
   };

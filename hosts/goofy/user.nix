@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{ pkgs, config, ... }: {
+
+  imports = [
+    ../../modules/nixos/steam
+  ];
+
+  modules.steam.enable = true;
+
   fonts = {
     packages = with pkgs; [
       jetbrains-mono
@@ -10,7 +17,7 @@
     ];
     fontconfig = {
       hinting.autohint = true;
-      defaultFonts.emoji = ["OpenMoji Color"];
+      defaultFonts.emoji = [ "OpenMoji Color" ];
     };
   };
 
@@ -37,6 +44,7 @@
         compositor = "kwin";
       };
     };
+    flatpak.enable = true;
   };
 
   networking.wireless.iwd.enable = true;

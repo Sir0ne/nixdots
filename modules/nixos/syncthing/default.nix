@@ -15,6 +15,9 @@ in
     services.syncthing = {
       enable = true;
       openDefaultPorts = true;
+      user = "users";
+      dataDir = "/home/goofy/Sync";
+      configDir = "/home/goofy/.config/syncthing";
       settings = {
         gui.user = "goofy";
         devices = {

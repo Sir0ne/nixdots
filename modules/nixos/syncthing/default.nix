@@ -19,7 +19,7 @@ in
         gui.user = "goofy";
         devices = {
           "laptop" = {
-            id = "laptop1";
+            id = "DVCZN7Z-UXSPYGN-SQVDK2X-CH7W5XK-TAYBVIX-WZSB2Z5-2RWFSIH-A4L22QJ";
           };
           "goofy" = {
             id = "VBO4S6E-Y2ETXBZ-MNVBAF3-GHZ6EMG-FM7SLFD-2THGRQY-6WDSBJ3-LIALVAL";

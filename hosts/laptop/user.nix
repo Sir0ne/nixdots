@@ -95,6 +95,7 @@
       hyprland.enable = true;
       retroarch.enable = true;
       nvim.enable = true;
+      syncthing.enable = true;
     };
   };
 }

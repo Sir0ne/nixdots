@@ -37,7 +37,7 @@ in
             ];
           };
           "ra-memcards" = {
-            path = "home/goofy/.config/retroarch/system/pcsx2/memcards";
+            path = "home/goofy/.config/retroarch/system/pcsx2/memcards/;
             devices = [
               "laptop"
               "goofy"

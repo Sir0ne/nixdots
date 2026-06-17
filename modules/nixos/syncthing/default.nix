@@ -22,7 +22,7 @@ in
             id = "laptop1";
           };
           "goofy" = {
-            id = "goofy1";
+            id = "VBO4S6E-Y2ETXBZ-MNVBAF3-GHZ6EMG-FM7SLFD-2THGRQY-6WDSBJ3-LIALVAL";
           };
         };
         folders = {

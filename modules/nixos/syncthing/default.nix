@@ -26,7 +26,7 @@ in
             id = "3E35PU5-A4Z2KNI-BK7AYTQ-3YVAURJ-2CQKP7H-LO6KO2I-ACZTKFA-S3PERAD";
           };
           "goofy" = {
-            id = "VBO4S6E-Y2ETXBZ-MNVBAF3-GHZ6EMG-FM7SLFD-2THGRQY-6WDSBJ3-LIALVAL";
+            id = "HTSKTFZ-2IPL5IN-6TVD54T-AFVNJO2-CU2S2VZ-MEVAL74-G6GGY2O-EL7QYQN";
           };
         };
         folders = {

@@ -15,7 +15,6 @@ in
     services.syncthing = {
       enable = true;
       openDefaultPorts = true;
-      extraFlags = [ "--no-default-folder" ];
       settings = {
         gui.user = "goofy";
         devices = {
@@ -30,8 +29,8 @@ in
           "ra-saves" = {
             path = "/home/goofy/.config/retroarch/saves";
             devices = [
-              "laptop1"
-              "goofy1"
+              "laptop"
+              "goofy"
             ];
           };
         };

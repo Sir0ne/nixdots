@@ -2,6 +2,7 @@
   home.stateVersion = "26.11";
   imports = [
     ./hyprland
+    ./wayfire
     ./zen-browser
     ./fuzzel
     ./kitty

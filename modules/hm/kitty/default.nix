@@ -3,9 +3,11 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.kitty;
-in {
+in
+{
   options.modules.kitty = {
     enable = mkEnableOption "kitty";
   };

@@ -30,6 +30,16 @@
       enable = true;
       withUWSM = true;
     };
+    uwsm = {
+      enable = true;
+      waylandCompositors = {
+        wayfire = {
+          prettyName = "Wayfire (UWSM)";
+          comment = "Wayfire";
+          binPath = "${pkgs.wayfire}/bin/wayfire";
+        };
+      };
+    };
     fish.enable = true;
   };
 
@@ -55,7 +65,10 @@
 
   security.rtkit.enable = true;
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
     bluetooth = {
       enable = true;
       powerOnBoot = false;
@@ -74,6 +87,7 @@
       hyprland.enable = true;
       retroarch.enable = true;
       nvim.enable = true;
+      prismlauncher.enable = true;
     };
   };
 }

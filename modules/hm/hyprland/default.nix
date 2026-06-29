@@ -46,6 +46,7 @@ in
   options.modules.hyprland = {
     enable = mkEnableOption "hyprland";
   };
+
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
@@ -73,6 +74,7 @@ in
           (bind "SUPER + Z" (dsp.exec "zen-beta"))
           (bind "SUPER + SPACE" (dsp.exec "fuzzel"))
           (bind "SUPER + F" (dsp.fullscreen))
+          (bind "SUPER + SHIFT + Page_Up" (dsp.exec "hyprshot -m window -o ~/Pictures/Screenshots"))
           (bind "SUPER + left" (dsp.focus "left"))
           (bind "SUPER + right" (dsp.focus "right"))
           (bind "SUPER + up" (dsp.focus "up"))
@@ -89,6 +91,7 @@ in
     home.packages = with pkgs; [
       mako
       libnotify
+      hyprshot
     ];
   };
 }

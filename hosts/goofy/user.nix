@@ -10,6 +10,11 @@
     syncthing.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    deadlock-mod-manager
+    easyeffects
+  ];
+
   fonts = {
     packages = with pkgs; [
       jetbrains-mono
@@ -29,6 +34,9 @@
     hyprland = {
       enable = true;
       withUWSM = true;
+    };
+    wayfire = {
+      enable = true;
     };
     uwsm = {
       enable = true;
@@ -88,6 +96,7 @@
       retroarch.enable = true;
       nvim.enable = true;
       prismlauncher.enable = true;
+      obsidian.enable = true;
     };
   };
 }

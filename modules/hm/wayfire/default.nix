@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib;
@@ -15,28 +16,16 @@ in
     wayland.windowManager.wayfire = {
       enable = true;
       systemd.enable = false;
-      wf-shell.enable = true;
+      wf-shell.enable = false;
+
+      plugins = with pkgs.wayfirePlugins; [
+        wcm
+        wf-shell
+        wayfire-plugins-extra
+      ];
 
       settings = {
-        core = {
-          plugins = [
-            "alpha"
-            "animate"
-            "autostart"
-            "command"
-            "cube"
-            "expo"
-            "grid"
-            "move"
-            "place"
-            "resize"
-            "switcher"
-            "vswitch"
-            "window-rules"
-            "wobbly"
-            "zoom"
-          ];
-        };
+        core.plugins = "autostart command move resize scale animate";
         command = {
           binding_close = "<super> KEY_Q";
           command_close = "wayfire-close";
@@ -48,9 +37,5 @@ in
         };
       };
     };
-    home.packages = with pkgs; [
-      wcm
-      wayfirePlugins.wayfire-plugins-extra
-    ];
   };
 }

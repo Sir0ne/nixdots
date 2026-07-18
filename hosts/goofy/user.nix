@@ -30,27 +30,6 @@
     };
   };
 
-  programs = {
-    hyprland = {
-      enable = true;
-      withUWSM = true;
-    };
-    wayfire = {
-      enable = true;
-    };
-    uwsm = {
-      enable = true;
-      waylandCompositors = {
-        wayfire = {
-          prettyName = "Wayfire (UWSM)";
-          comment = "Wayfire";
-          binPath = "${pkgs.wayfire}/bin/wayfire";
-        };
-      };
-    };
-    fish.enable = true;
-  };
-
   services = {
     pipewire = {
       enable = true;
@@ -58,13 +37,8 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    displayManager.sddm = {
+    desktopManager.budgie = {
       enable = true;
-      wayland = {
-        enable = true;
-        compositor = "kwin";
-      };
     };
     flatpak.enable = true;
   };

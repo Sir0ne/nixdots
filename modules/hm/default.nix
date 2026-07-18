@@ -14,5 +14,6 @@
     ./nvim
     ./games/retroarch
     ./games/prismlauncher
+    ./obsidian
   ];
 }

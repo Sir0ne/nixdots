@@ -14,6 +14,7 @@
     ./nvim
     ./games/retroarch
     ./games/prismlauncher
-    ./obsidian
+    ./dl-grimoire
+    ./qbz
   ];
 }

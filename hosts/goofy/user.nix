@@ -10,11 +10,6 @@
     syncthing.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    deadlock-mod-manager
-    easyeffects
-  ];
-
   fonts = {
     packages = with pkgs; [
       jetbrains-mono
@@ -30,6 +25,11 @@
     };
   };
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   services = {
     pipewire = {
       enable = true;
@@ -37,14 +37,10 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    desktopManager.budgie = {
-      enable = true;
-    };
+    displayManager.ly.enable = true;
     flatpak.enable = true;
   };
-
-  networking.wireless.iwd.enable = true;
-
+  networking.networkmanager.enable = true;
   security.rtkit.enable = true;
   hardware = {
     graphics = {
@@ -60,17 +56,18 @@
   home-manager.users.goofy = {
     config.modules = {
       zen-browser.enable = true;
-      fuzzel.enable = true;
       kitty.enable = true;
       git.enable = true;
       vesktop.enable = true;
       stylix.enable = true;
-      waybar.enable = true;
       hyprland.enable = true;
+      waybar.enable = true;
+      fuzzel.enable = true;
       retroarch.enable = true;
       nvim.enable = true;
       prismlauncher.enable = true;
-      obsidian.enable = true;
+      grimoire.enable = true;
+      qbz.enable = true;
     };
   };
 }

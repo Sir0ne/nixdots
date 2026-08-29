@@ -24,12 +24,16 @@
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Deadlock Modmanager that i like
+    grimoire.url = "github:Slush97/grimoire";
   };
 
   outputs =
     inputs@{
       home-manager,
       nixpkgs,
+      grimoire,
       ...
     }:
     let

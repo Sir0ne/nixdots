@@ -158,6 +158,42 @@
         "type": "github"
       }
     },
+    "grimoire": {
+      "inputs": {
+        "grimoire-social": "grimoire-social",
+        "nixpkgs": "nixpkgs",
+        "vpkmerge": "vpkmerge"
+      },
+      "locked": {
+        "lastModified": 1786487351,
+        "narHash": "sha256-NvA6WmmIJB7x+hKC0FTInZKSmskJ/I4FEKZZL+j2wfA=",
+        "owner": "Slush97",
+        "repo": "grimoire",
+        "rev": "d438c7e9650849e4f17b2b54c3391174083c78d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "repo": "grimoire",
+        "type": "github"
+      }
+    },
+    "grimoire-social": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779261108,
+        "narHash": "sha256-f+wUZOR7dqigxd/IZtay1BrLS5rcSnaDage3NXxqsPE=",
+        "owner": "Slush97",
+        "repo": "grimoire-social",
+        "rev": "efffe0b92a49d6cc8d82406d6fc163c2fd3662a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "repo": "grimoire-social",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -179,6 +215,22 @@
       }
     },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1785454630,
+        "narHash": "sha256-LQy14TZp77TwbQf40gg1V3jo8FwJG0jGDkAH+zRHqg8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1559d3daa3ecc813a650b79375ea61b6741b8746",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1784007870,
         "narHash": "sha256-djcLt/JJphyNt4eDY9XTly+/WbCK5lqWq9lSgCmJkkQ=",
@@ -237,8 +289,9 @@
     "root": {
       "inputs": {
         "disko": "disko",
+        "grimoire": "grimoire",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "preservation": "preservation",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
@@ -374,6 +427,23 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "vpkmerge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783195121,
+        "narHash": "sha256-DjGEiL6Zfm1chawjeT23KXKvmncCjDssFzguPmHNWUw=",
+        "owner": "Slush97",
+        "repo": "vpkmerge",
+        "rev": "f716f7a95aa64cb8534b18c6edc81f29a849db9a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "ref": "v0.19.0",
+        "repo": "vpkmerge",
         "type": "github"
       }
     },

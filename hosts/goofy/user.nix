@@ -67,7 +67,7 @@
       nvim.enable = true;
       prismlauncher.enable = true;
       grimoire.enable = true;
-      qbz.enable = true;
+      faugus.enable = true;
     };
   };
 }

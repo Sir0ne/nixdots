@@ -16,5 +16,6 @@
     ./games/prismlauncher
     ./dl-grimoire
     ./qbz
+    ./faugus
   ];
 }

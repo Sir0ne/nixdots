@@ -26,6 +26,7 @@ in
     };
     environment.systemPackages = with pkgs; [
       mangohud
+      beammp-launcher
     ];
   };
 }

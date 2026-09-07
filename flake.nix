@@ -27,6 +27,9 @@
 
     # Deadlock Modmanager that i like
     grimoire.url = "github:Slush97/grimoire";
+
+    #qobuz player cuz the package is out-of-date [temp maybe (prolly not tho lol)]
+    qbz.url = "github:vicrodh/qbz";
   };
 
   outputs =

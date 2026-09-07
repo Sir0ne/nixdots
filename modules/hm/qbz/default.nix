@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 with lib;
@@ -14,7 +15,7 @@ in
   };
   config = mkIf cfg.enable {
     home.packages = [
-      qbz
+      inputs.qbz.packages.${pkgs.system}.default
     ];
   };
 }

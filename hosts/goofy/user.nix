@@ -68,6 +68,7 @@
       prismlauncher.enable = true;
       grimoire.enable = true;
       faugus.enable = true;
+      dolphin-emu.enable = true;
     };
   };
 }

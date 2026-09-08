@@ -17,5 +17,6 @@
     ./dl-grimoire
     ./qbz
     ./faugus
+    ./dolphin-emu
   ];
 }

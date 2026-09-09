@@ -13,6 +13,12 @@ in
     enable = mkEnableOption "Wayfire";
   };
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      papirus-icon-theme
+    ];
+
+    fonts.fontconfig.enable = true;
+
     wayland.windowManager.wayfire = {
       enable = true;
       systemd.enable = false;

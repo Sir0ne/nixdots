@@ -17,6 +17,11 @@ in
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
+      iconTheme = {
+        package = pkgs.adwaita-icon-theme;
+        light = "Adwaita";
+        dark = "Adwaita";
+      };
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
       image = ../../../assets/backgrounds/Mountain.png;

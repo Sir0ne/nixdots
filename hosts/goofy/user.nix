@@ -30,6 +30,15 @@
     xwayland.enable = true;
   };
 
+  programs.wayfire = {
+    enable = true;
+    plugins = with pkgs.wayfirePlugins; [
+      wcm
+      wf-shell
+      wayfire-plugins-extra
+    ];
+  };
+
   services = {
     pipewire = {
       enable = true;
@@ -69,6 +78,7 @@
       grimoire.enable = true;
       faugus.enable = true;
       dolphin-emu.enable = true;
+      wayfire.enable = true;
     };
   };
 }

@@ -4,7 +4,8 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.retroarch;
   bios = {
     ps1 = {
@@ -25,8 +26,11 @@ with lib; let
       };
     };
   };
-in {
-  options.modules.retroarch = {enable = mkEnableOption "retro arch";};
+in
+{
+  options.modules.retroarch = {
+    enable = mkEnableOption "retro arch";
+  };
   config = mkIf cfg.enable {
     programs.retroarch = {
       enable = true;
@@ -46,13 +50,11 @@ in {
     home.file =
       lib.mapAttrs' (name: source: {
         name = ".config/retroarch/system/${name}.bin";
-        value = {inherit source;};
-      })
-      bios.ps1
+        value = { inherit source; };
+      }) bios.ps1
       // lib.mapAttrs' (name: source: {
         name = ".config/retroarch/system/pcsx2/bios/${name}.bin";
-        value = {inherit source;};
-      })
-      bios.ps2;
+        value = { inherit source; };
+      }) bios.ps2;
   };
 }

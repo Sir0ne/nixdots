@@ -39,6 +39,23 @@
     ];
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config = {
+      common = {
+        default = [
+          "wlr"
+          "gtk"
+        ];
+      };
+    };
+    xdgOpenUsePortal = true;
+  };
+
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+
   services = {
     pipewire = {
       enable = true;
@@ -48,7 +65,6 @@
     };
     displayManager.ly.enable = true;
     flatpak.enable = true;
-    xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
   };
   networking.networkmanager.enable = true;
   security.rtkit.enable = true;

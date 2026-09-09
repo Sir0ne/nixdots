@@ -14,7 +14,7 @@ in
   };
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      papirus-icon-theme
+      adwaita-icon-theme
     ];
 
     fonts.fontconfig.enable = true;

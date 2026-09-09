@@ -48,6 +48,7 @@
     };
     displayManager.ly.enable = true;
     flatpak.enable = true;
+    xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
   };
   networking.networkmanager.enable = true;
   security.rtkit.enable = true;

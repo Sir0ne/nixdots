@@ -17,7 +17,7 @@ in
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      iconTheme = {
+      icons = {
         package = pkgs.adwaita-icon-theme;
         light = "Adwaita";
         dark = "Adwaita";

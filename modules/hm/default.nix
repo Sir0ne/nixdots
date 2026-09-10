@@ -7,12 +7,13 @@
     ./fuzzel
     ./kitty
     ./git
-    ./vesktop
+    ./nixcord
     ./stylix
     ./waybar
     ./fish
     ./nvim
     ./games/retroarch
+    ./games/pcsx
     ./games/prismlauncher
     ./dl-grimoire
     ./qbz

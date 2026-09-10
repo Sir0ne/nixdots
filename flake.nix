@@ -30,13 +30,14 @@
 
     #qobuz player cuz the package is out-of-date [temp maybe (prolly not tho lol)]
     qbz.url = "github:vicrodh/qbz";
+
+    nixcord.url = "github:4evy/nixcord";
   };
 
   outputs =
     inputs@{
       home-manager,
       nixpkgs,
-      grimoire,
       ...
     }:
     let

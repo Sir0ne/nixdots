@@ -15,6 +15,9 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       adwaita-icon-theme
+      slurp
+      grim
+      wf-recorder
     ];
 
     fonts.fontconfig.enable = true;

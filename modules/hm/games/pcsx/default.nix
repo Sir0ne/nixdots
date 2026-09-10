@@ -6,11 +6,11 @@
 }:
 with lib;
 let
-  cfg = config.modules.fuzzel;
+  cfg = config.modules.pcsx;
 in
 {
-  options.modules.fuzzel = {
-    enable = mkEnableOption "fuzzel";
+  options.modules.pcsx = {
+    enable = mkEnableOption "PCSX2";
   };
   config = mkIf cfg.enable {
     home.packages = with pkgs; [

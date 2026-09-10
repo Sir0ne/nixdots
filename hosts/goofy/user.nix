@@ -84,7 +84,7 @@
       zen-browser.enable = true;
       kitty.enable = true;
       git.enable = true;
-      vesktop.enable = true;
+      nixcord.enable = true;
       stylix.enable = true;
       hyprland.enable = true;
       waybar.enable = true;
@@ -96,6 +96,7 @@
       faugus.enable = true;
       dolphin-emu.enable = true;
       wayfire.enable = true;
+      pcsx.enable = true;
     };
   };
 }

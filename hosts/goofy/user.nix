@@ -25,11 +25,6 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   programs.wayfire = {
     enable = true;
     plugins = with pkgs.wayfirePlugins; [
@@ -38,23 +33,6 @@
       wayfire-plugins-extra
     ];
   };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config = {
-      common = {
-        default = [
-          "wlr"
-          "gtk"
-        ];
-      };
-    };
-    xdgOpenUsePortal = true;
-  };
-
-  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   services = {
     pipewire = {
@@ -86,9 +64,6 @@
       git.enable = true;
       nixcord.enable = true;
       stylix.enable = true;
-      hyprland.enable = true;
-      waybar.enable = true;
-      fuzzel.enable = true;
       retroarch.enable = true;
       nvim.enable = true;
       prismlauncher.enable = true;

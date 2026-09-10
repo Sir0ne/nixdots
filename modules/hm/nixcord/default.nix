@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }:
 with lib;
@@ -18,7 +19,10 @@ in
   config = mkIf cfg.enable {
     programs.nixcord = {
       enable = true;
-      discord.equicord.enable = true;
+
+      discord.enable = false;
+      vesktop.enable = true;
+
       config = {
         plugins = {
           fakeNitro.enable = true;

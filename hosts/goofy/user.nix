@@ -1,9 +1,18 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
+{
 
   imports = [
     ../../modules/nixos/steam
     ../../modules/nixos/syncthing
+    stylix.nixosModules.stylix
   ];
+
+  stylix.enable = true;
 
   modules = {
     steam.enable = true;
@@ -25,15 +34,18 @@
     };
   };
 
-  programs.wayfire = {
-    enable = true;
-    plugins = with pkgs.wayfirePlugins; [
-      wcm
-      wf-shell
-      wayfire-plugins-extra
-    ];
+  programs = {
+    wayfire = {
+      enable = true;
+      plugins = with pkgs.wayfirePlugins; [
+        wcm
+        wf-shell
+        wayfire-plugins-extra
+      ];
+    };
   };
 
+  # Services [ Graphics, Audio, Video, Networking ]
   services = {
     pipewire = {
       enable = true;
@@ -41,10 +53,16 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    displayManager.ly.enable = true;
+
+    displayManager = {
+      regreet.enable = true;
+    };
+
     flatpak.enable = true;
   };
+
   networking.networkmanager.enable = true;
+
   security.rtkit.enable = true;
   hardware = {
     graphics = {
@@ -57,13 +75,14 @@
     };
   };
 
+  # Home manager packages and configs
   home-manager.users.goofy = {
     config.modules = {
       zen-browser.enable = true;
       kitty.enable = true;
       git.enable = true;
       nixcord.enable = true;
-      stylix.enable = true;
+      stylix.enable = false;
       retroarch.enable = true;
       nvim.enable = true;
       prismlauncher.enable = true;

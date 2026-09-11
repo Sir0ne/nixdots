@@ -13,10 +13,6 @@ in
     enable = mkEnableOption "sddm";
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      elegant-sddm
-    ];
-
     services.displayManager = {
       sessionPackages = [ ];
       sddm = {

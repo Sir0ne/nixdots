@@ -26,6 +26,7 @@ in
     wayland.windowManager.wayfire = {
       enable = true;
       package = null;
+      systemd.enable = true;
       wf-shell.enable = true;
 
       plugins = with pkgs.wayfirePlugins; [

@@ -13,6 +13,11 @@ in
     enable = mkEnableOption "fuzzel";
   };
   config = mkIf cfg.enable {
-    programs.fuzzel.enable = true;
+    programs.fuzzel = {
+      enable = true;
+      settings.main = {
+        filter-desktop = true;
+      };
+    };
   };
 }

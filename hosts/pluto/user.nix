@@ -1,12 +1,14 @@
 {
   services.openssh = {
-    enable = true; # opens port 22 in the firewall by default
+    enable = true;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
   users.users.goofy = {
     isNormalUser = true;

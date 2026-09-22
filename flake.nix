@@ -21,7 +21,9 @@
       url = "github:aksiksi/compose2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
+    playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
+    
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -38,6 +40,7 @@
     inputs@{
       home-manager,
       nixpkgs,
+      playit-nixos-module,
       ...
     }:
     let

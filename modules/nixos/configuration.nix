@@ -12,12 +12,10 @@
     xserver.desktopManager.xterm.enable = false;
     openssh = {
       enable = true;
-      allowSFTP = false;
       settings = {
+        PasswordAuthentication = true;
         PermitRootLogin = "no";
-        PasswordAuthentication = false;
       };
-      openFirewall = true;
     };
   };
 

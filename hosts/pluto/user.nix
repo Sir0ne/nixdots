@@ -1,20 +1,18 @@
+{ inputs, ... }:
 {
-  services.openssh = {
+ 
+  imports = [
+    ../../services/hydrodactyl
+  ]; 
+
+  environment.systemPackages = [
+    inputs.compose2nix.packages.x86_64-linux.default
+  ];
+
+  virtualisation.docker = {
     enable = true;
-    settings = {
-      PasswordAuthentication = true;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
-    };
   };
 
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  users.users.goofy.extraGroups = [ "docker" ];
 
-  users.users.goofy = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE1tAPpQlQRxOHE+b3hbfgvyb5s1hvqJ+By/Vq5INFDr vivian@hausofwong.com"
-    ];
-  };
 }

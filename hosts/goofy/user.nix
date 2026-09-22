@@ -162,7 +162,6 @@
       kitty.enable = true;
       git.enable = true;
       nixcord.enable = true;
-      stylix.enable = false;
       retroarch.enable = true;
       nvim.enable = true;
       prismlauncher.enable = true;

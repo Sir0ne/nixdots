@@ -5,10 +5,10 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+    
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-
+    
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -17,13 +17,13 @@
       };
     };
 
+    compose2nix = {
+      url = "github:aksiksi/compose2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    preservation.url = "github:nix-community/preservation";
-
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # Deadlock Modmanager that i like
     grimoire.url = "github:Slush97/grimoire";
@@ -76,6 +76,7 @@
       nixosConfigurations = {
         laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
         goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
+        pluto = mkSystem inputs.nixpkgs "x86_64-linux" "pluto";
       };
     };
 }

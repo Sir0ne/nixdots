@@ -8,7 +8,6 @@
     ./kitty
     ./git
     ./nixcord
-    ./stylix
     ./waybar
     ./fish
     ./nvim

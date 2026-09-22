@@ -79,10 +79,6 @@
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/goofy/.config/sops/age/keys.txt";
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-    secrets = {
-      example-key = { };
-      "myservice/my_subdir/my_secret" = { };
-    };
   };
 
   security = {

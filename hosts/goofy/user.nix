@@ -17,8 +17,6 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  programs.noisetorch.enable = true;
-
   stylix = {
     enable = true;
     icons = {

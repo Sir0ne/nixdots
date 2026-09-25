@@ -51,7 +51,10 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "lua";
-      systemd.variables = [ "--all" ];
+      systemd = { 
+        enable = false;
+        variables = [ "--all" ]; 
+      };
       settings = {
         monitor = [
           {

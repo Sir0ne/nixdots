@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   inputs,
   ...
 }:
@@ -9,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
     pavucontrol
+    wlogout
   ];
 
   imports = [
@@ -123,23 +123,19 @@
     };
   };
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      xdg-desktop-portal-wlr = prev.xdg-desktop-portal-wlr.overrideAttrs (old: {
-        version = "0.8.4";
-        src = final.fetchFromGitHub {
-          owner = "emersion";
-          repo = "xdg-desktop-portal-wlr";
-          rev = "v0.8.4";
-          hash = "sha256-8Ohgkz13FcG8ddjjgreXkvFD2Q+zUDZnAM4Oh+C9P/s=";
-        };
-      });
-    })
+  networking = {
+    networkmanager.enable = true;
+    firewall.trustedInterfaces = [ "enp5s0" ];
+    nameservers = [
+      "8.8.8.8"
+      "1.1.1.1"
+    ];
+  };
+  boot.kernelParams = [
+    "quiet"
+    "video=HDMI-A-1:1920x1080@60"
+    "video=DP-2:1920x1080@60"
   ];
-
-  networking.networkmanager.enable = true;
-
-  networking.firewall.trustedInterfaces = [ "enp5s0" ];
 
   security.rtkit.enable = true;
   hardware = {

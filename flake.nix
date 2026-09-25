@@ -5,10 +5,10 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -77,6 +77,7 @@
         laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
         goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
         pluto = mkSystem inputs.nixpkgs "x86_64-linux" "pluto";
+        daffy = mkSystem inputs.nixpkgs "x86_64-linux" "daffy";
       };
     };
 }

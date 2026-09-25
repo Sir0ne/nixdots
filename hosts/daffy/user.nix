@@ -1,7 +1,21 @@
 { pkgs, ... }: {
 
-  services.cloudflared = {
-    enable = true;
+ 
+
+  services = { 
+    cloudflared = {
+      enable = true;
+      tunnels."0b528b07-cb3a-43f2-b49b-e7155fba5b9e" = {
+        
+      };
+    };
+    openssh = {
+      allowSFTP = false;
+      settings = { 
+        KbdInteractiveAuthentication = true;
+        PasswordAuthentication = false;
+      }; 
+    };
   };
 
   services.prosody = {

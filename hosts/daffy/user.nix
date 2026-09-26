@@ -6,7 +6,8 @@
     cloudflared = {
       enable = true;
       tunnels."0b528b07-cb3a-43f2-b49b-e7155fba5b9e" = {
-        
+        credentialsFile = ;
+        default = "http_status:404" ;
       };
     };
     openssh = {

@@ -36,7 +36,6 @@
   };
  
   sops.secrets.playit-agent = {
-    sopsFile = ./secrets/secrets.yaml;
     key = "playit-agent";
   };
  

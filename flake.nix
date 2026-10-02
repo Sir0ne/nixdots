@@ -30,9 +30,6 @@
     # Deadlock Modmanager that i like
     grimoire.url = "github:Slush97/grimoire";
 
-    #qobuz player cuz the package is out-of-date [temp maybe (prolly not tho lol)]
-    qbz.url = "github:vicrodh/qbz";
-
     nixcord.url = "github:4evy/nixcord";
   };
 
@@ -80,6 +77,9 @@
         laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
         goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
         pluto = mkSystem inputs.nixpkgs "x86_64-linux" "pluto";
+        
+        # temp
+        gaming-laptop = mkSystem inputs.nixpkgs "x86_64-linux" "gaming-laptop";
       };
     };
 }

@@ -15,7 +15,6 @@
     ./games/pcsx
     ./games/prismlauncher
     ./dl-grimoire
-    ./qbz
     ./faugus
     ./dolphin-emu
   ];

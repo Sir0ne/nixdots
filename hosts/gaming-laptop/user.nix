@@ -4,7 +4,25 @@
     inputs.stylix.nixosModules.stylix
     ../../modules/nixos/steam
   ];
+ 
+  environment.systemPackages = with pkgs; [
+    tuigreet
+  ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      xdg-desktop-portal-wlr = prev.xdg-desktop-portal-wlr.overrideAttrs (oldAttrs: rec {
+        version = "0.8.2";
+        src = prev.fetchFromGitHub {
+          owner = "emersion";
+          repo = "xdg-desktop-portal-wlr";
+          rev = "v${version}";
+          hash = "sha256-HITf/hgiASWvn/z49mzS8IS1vuyXwdk1JiAOOHRSQMo=";
+        };
+      });
+    })
+  ];
+ 
   modules = {
     steam.enable = true;
   };
@@ -49,18 +67,8 @@
         wayfire-plugins-extra
       ];
     };
-    
     fish.enable = true;
-    uwsm = {
-      enable = true;
-      waylandCompositors = {
-        wayfire = {
-          prettyName = "Wayfire";
-          comment = "Wayfire compositor managed by UWSM";
-          binPath = "/run/current-system/bin/wayfire";
-        };
-      };
-    };
+    uwsm.enable = true;
   };
 
   services = {
@@ -69,10 +77,22 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
 
-    displayManager.ly = {
+    greetd = {
       enable = true;
+      restart = false;
+      settings = {
+        initial_session = {
+          command = "uwsm start -F -- /run/current-system/sw/bin/wayfire";
+          user = "goofy";
+        };
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'uwsm start default'";
+          user = "greeter";
+        };
+      };
     };
   };
 
@@ -82,7 +102,6 @@
 
   networking.wireless.iwd.enable = true;
   services.xserver.videoDrivers = [ "modesetting" "nvidia" ];  
-
 
   hardware = {
     graphics = {
@@ -121,6 +140,7 @@
       git.enable = true;
       nixcord.enable = true;
       wayfire.enable = true;
+      waybar.enable = true;
     };
   };
 }

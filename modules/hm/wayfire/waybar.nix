@@ -6,7 +6,6 @@
 }:
 
 {
-  programs.waybar.enable = true;
   programs.waybar.settings = [
     {
       layer = "top";

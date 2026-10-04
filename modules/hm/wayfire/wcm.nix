@@ -21,7 +21,7 @@
       notifications = "uwsm app -- mako";
     };
 
-    core.plugins = "autostart command move resize scale animate panel cube  animate  expo fast-switcher  foreign-toplevel grid gtk-shell idle invert oswitch place resize session-lock shortcuts-inhibit switcher vswitch wobbly wrot wsets zoom wayfire-shell wm-actions window-rules";
+    core.plugins = "autostart command move resize ipc ipc-rules scale animate panel cube grid animate expo fast-switcher foreign-toplevel idle oswitch place resize session-lock shortcuts-inhibit switcher vswitch wobbly wrot wsets zoom wayfire-shell wm-actions window-rules";
 
     command = {
       binding_close = "<super> KEY_Q";
@@ -46,6 +46,10 @@
 
     wm-actions = {
       toggle_fullscreen = "<super> KEY_F";
+    };
+
+    place = {
+      mode = "cascade";
     };
   };
 }

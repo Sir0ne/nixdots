@@ -13,6 +13,8 @@ in
   imports = [
     ./waybar.nix
     ./wcm.nix
+    ./mako.nix
+    ./packages.nix
   ];
 
   options.modules.wayfire = {
@@ -20,14 +22,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      adwaita-icon-theme
-      slurp
-      grim
-      wf-recorder
-      networkmanagerapplet
-    ];
-
     fonts.fontconfig.enable = true;
 
     wayland.windowManager.wayfire = {

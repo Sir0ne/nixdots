@@ -14,7 +14,6 @@
 
       modules-left = [
         "custom/launcher"
-        "wayfire/workspaces"
         "wayfire/window"
       ];
       modules-center = [ "clock" ];
@@ -38,7 +37,7 @@
       };
 
       "wayfire/window" = {
-        format = "{}";
+        icon = true;
         max-length = 40;
       };
 

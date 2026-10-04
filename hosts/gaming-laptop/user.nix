@@ -41,11 +41,26 @@
   };
 
   programs = {
-    hyprland = {
+    wayfire = {
       enable = true;
-      withUWSM = true;
+      plugins = with pkgs.wayfirePlugins; [
+        wcm
+        wf-shell
+        wayfire-plugins-extra
+      ];
     };
+    
     fish.enable = true;
+    uwsm = {
+      enable = true;
+      waylandCompositors = {
+        wayfire = {
+          prettyName = "Wayfire";
+          comment = "Wayfire compositor managed by UWSM";
+          binPath = "/run/current-system/bin/wayfire";
+        };
+      };
+    };
   };
 
   services = {
@@ -63,13 +78,6 @@
 
   boot.kernel.sysctl = { 
     "vm.max_map_count" = 2147483642; 
-  };
-
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-
-    __GL_GSYNC_ALLOWED = "0";
-    __GL_VRR_ALLOWED = "0";
   };
 
   networking.wireless.iwd.enable = true;
@@ -112,8 +120,7 @@
       grimoire.enable = true;
       git.enable = true;
       nixcord.enable = true;
-      waybar.enable = true;
-      hyprland.enable = true;
+      wayfire.enable = true;
     };
   };
 }

@@ -66,6 +66,12 @@ in
             position = "0x0";
             scale = "auto";
           }
+          {
+            output = "eDP-1";
+            mode = "1920x1080@143.99899";
+            position = "0x0";
+            scale = "1";
+          }
         ];
 
         bind = [

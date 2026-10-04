@@ -61,9 +61,20 @@
     };
   };
 
-  networking.wireless.iwd.enable = true;
+  boot.kernel.sysctl = { 
+    "vm.max_map_count" = 2147483642; 
+  };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+
+    __GL_GSYNC_ALLOWED = "0";
+    __GL_VRR_ALLOWED = "0";
+  };
+
+  networking.wireless.iwd.enable = true;
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];  
+
 
   hardware = {
     graphics = {
@@ -75,13 +86,8 @@
       modesetting.enable = true;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      open = false;
+      open = true;
       
-      powerManagement = {
-        enable = true;
-        finegrained = false;
-      };
-
       prime = {
         offload = {
           enable = true;

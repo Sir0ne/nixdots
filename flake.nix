@@ -5,10 +5,10 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -21,9 +21,9 @@
       url = "github:aksiksi/compose2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
-    
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -37,7 +37,6 @@
     inputs@{
       home-manager,
       nixpkgs,
-      playit-nixos-module,
       ...
     }:
     let
@@ -77,7 +76,7 @@
         laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
         goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";
         pluto = mkSystem inputs.nixpkgs "x86_64-linux" "pluto";
-        
+
         # temp
         gaming-laptop = mkSystem inputs.nixpkgs "x86_64-linux" "gaming-laptop";
       };

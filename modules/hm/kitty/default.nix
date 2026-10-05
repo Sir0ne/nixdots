@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib;
@@ -18,5 +19,10 @@ in
         window_margin_width = 15;
       };
     };
+
+    # temp, too lazy to make new file ngl
+    home.packages = with pkgs; [
+      nvtopPackages.amd
+    ];
   };
 }

@@ -72,6 +72,7 @@
         };
     in
     {
+      formatter.x86_64-linux = pkgs.nixfmt;
       nixosConfigurations = {
         laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
         goofy = mkSystem inputs.nixpkgs "x86_64-linux" "goofy";

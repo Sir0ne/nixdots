@@ -58,14 +58,6 @@
 
   # Services [ Graphics, Audio, Video, Networking ]
   services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      wireplumber.enable = true;
-    };
-
     flatpak.enable = true;
   };
 
@@ -73,10 +65,6 @@
 
   security.rtkit.enable = true;
   hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
     bluetooth = {
       enable = true;
       powerOnBoot = false;

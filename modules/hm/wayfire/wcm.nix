@@ -1,4 +1,5 @@
-{ ... }: {
+{ pkgs, config, ... }: {
+  # idk where to put awww
   wayland.windowManager.wayfire.settings = {
     "output:HDMI-A-1" = {
       mode = "1920x1080@180000";
@@ -15,8 +16,7 @@
     };
 
     autostart = {
-      "0_uwsm_finalize" = "uwsm finalize UWSM_ID UWSM_APP_UNIT_TYPE UWSM_USE_SESSION_SLICE";
-      "1_wf_background" = "uwsm app -- wf-background";
+      uwsm_finalize = "uwsm finalize";
       autostart_wf_shell = false;
       notifications = "uwsm app -- mako";
     };

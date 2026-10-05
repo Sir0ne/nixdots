@@ -13,6 +13,9 @@
   imports = [
     ../../modules/nixos/steam
     ../../modules/nixos/syncthing
+
+#   Turn desktops into toggles down the line
+    ../../modules/nixos/desktops/wayfire
     inputs.stylix.nixosModules.stylix
   ];
 
@@ -50,13 +53,6 @@
     fontconfig = {
       hinting.autohint = true;
       defaultFonts.emoji = [ "OpenMoji Color" ];
-    };
-  };
-
-  programs = {
-    hyprland = {
-      enable = true;
-      withUWSM = true;
     };
   };
 
@@ -98,13 +94,10 @@
       nvim.enable = true;
       prismlauncher.enable = true;
       grimoire.enable = true;
-      faugus.enable = true;
-      dolphin-emu.enable = true;
       wayfire.enable = true;
       pcsx.enable = true;
       waybar.enable = true;
       fuzzel.enable = true;
-      hyprland.enable = true;
     };
   };
 }

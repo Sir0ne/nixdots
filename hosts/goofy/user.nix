@@ -8,16 +8,33 @@
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
     pavucontrol
+    piper
   ];
+
+  services.ratbagd.enable = true;
 
   imports = [
     ../../modules/nixos/steam
     ../../modules/nixos/syncthing
 
-#   Turn desktops into toggles down the line
-    ../../modules/nixos/desktops/wayfire
+    ../../modules/nixos/desktops/river
+
+    #   Turn desktops into toggles down the line
     inputs.stylix.nixosModules.stylix
   ];
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-pipewire-audio-capture
+      obs-vaapi
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
+
+  programs.niri.enable = true;
 
   stylix = {
     enable = true;
@@ -35,6 +52,12 @@
       size = 24;
     };
   };
+
+  programs.noisetorch.enable = true;
+  systemd.user.services.pipewire.serviceConfig.Environment =
+    "LADSPA_PATH=/tmp:/usr/lib64/ladspa:/usr/lib/ladspa:";
+  systemd.user.services.pipewire-pulse.serviceConfig.Environment =
+    "LADSPA_PATH=/tmp:/usr/lib64/ladspa:/usr/lib/ladspa:";
 
   modules = {
     steam.enable = true;
@@ -64,12 +87,6 @@
   networking.networkmanager.enable = true;
 
   security.rtkit.enable = true;
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-    };
-  };
 
   # Home manager packages and configs
   home-manager.users.goofy = {
@@ -78,14 +95,12 @@
       kitty.enable = true;
       git.enable = true;
       nixcord.enable = true;
-      retroarch.enable = true;
       nvim.enable = true;
       prismlauncher.enable = true;
-      grimoire.enable = true;
-      wayfire.enable = true;
-      pcsx.enable = true;
-      waybar.enable = true;
-      fuzzel.enable = true;
+      faugus.enable = true;
     };
+    config.home.packages = with pkgs; [
+      r2modman
+    ];
   };
 }

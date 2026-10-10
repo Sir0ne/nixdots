@@ -17,6 +17,7 @@
 
     autostart = {
       uwsm_finalize = "uwsm finalize";
+      uwsm_env = "uwsm env sync";
       autostart_wf_shell = false;
       notifications = "uwsm app -- mako";
     };
@@ -32,6 +33,15 @@
 
       binding_launcher = "<super> <shift> KEY_ENTER";
       command_launcher = "uwsm app -- fuzzel";
+
+      binding_gsr_start = "<super> <alt> KEY_P";
+      command_gsr_start = "gsr-replay start";
+
+      binding_gsr_save = "<alt> KEY_F10";
+      command_gsr_save = "gsr-replay save";
+
+      binding_gsr_stop = "<super> <alt> KEY_O";
+      command_gsr_stop = "gsr-replay stop";
     };
 
     cube = {

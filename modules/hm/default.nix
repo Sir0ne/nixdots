@@ -17,5 +17,6 @@
     ./dl-grimoire
     ./faugus
     ./dolphin-emu
+    ./river
   ];
 }

@@ -41,7 +41,7 @@
 
   boot = {
     tmp.cleanOnBoot = true;
-    plymouth.enable = true;
+    plymouth.enable = false;
     loader = {
       limine = {
         enable = true;

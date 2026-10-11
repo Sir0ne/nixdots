@@ -22,8 +22,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Deadlock Modmanager that i like
-    grimoire.url = "github:Slush97/grimoire";
+    river-next = {
+      url = "github:dmkhitaryan/river-next-nix-module/stable";
+      flake = false;
+    };
 
     nixcord.url = "github:4evy/nixcord";
   };

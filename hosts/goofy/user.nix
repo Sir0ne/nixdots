@@ -16,9 +16,7 @@
   imports = [
     ../../modules/nixos/steam
     ../../modules/nixos/syncthing
-
     ../../modules/nixos/desktops/river
-
     #   Turn desktops into toggles down the line
     inputs.stylix.nixosModules.stylix
   ];
@@ -33,8 +31,6 @@
       obs-vkcapture
     ];
   };
-
-  programs.niri.enable = true;
 
   stylix = {
     enable = true;
@@ -97,7 +93,6 @@
       nixcord.enable = true;
       nvim.enable = true;
       prismlauncher.enable = true;
-      faugus.enable = true;
     };
     config.home.packages = with pkgs; [
       r2modman

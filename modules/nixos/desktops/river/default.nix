@@ -1,13 +1,26 @@
-{ pkgs, input, ... }: {
+{ pkgs, inputs, ... }: {
 
-  environment.systemPackages = with pkgs; [
-    pkgs.river
-    pkgs.river-bsp-layout
+  imports = [
+    (import "${inputs.river-next}/river-module.nix")
   ];
 
-  programs.uwsm.enable = true;
+  programs.river-next = {
+    enable = true;
+    windowManagers = [ "beansprout" ];
+    xwayland.enable = true;
+  };
 
-  services.displayManager.sessionPackages = [ pkgs.river ];
+  programs.uwsm = {
+    enable = true;
+
+    waylandCompositors.river = {
+      prettyName = "River";
+      comment = "River compositor managed under UWSM";
+      binPath = "${pkgs.river}/bin/river";
+    };
+  };
+
+  xdg.portal.enable = true;
 
   hardware = {
     graphics = {
@@ -24,14 +37,17 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    displayManager.enable = true;
+    displayManager.ly.enable = true;
   };
 
   home-manager.users.goofy = {
     config.modules = {
-      wayfire.enable = true;
+      river.enable = true;
       fuzzel.enable = true;
       waybar.enable = true;
     };
+    config.home.packages = with pkgs; [
+      foot
+    ];
   };
 }

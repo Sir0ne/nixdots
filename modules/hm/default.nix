@@ -3,6 +3,7 @@
   imports = [
     ./hyprland
     ./wayfire
+    ./river
     ./zen-browser
     ./fuzzel
     ./kitty
@@ -14,7 +15,6 @@
     ./games/retroarch
     ./games/pcsx
     ./games/prismlauncher
-    ./dl-grimoire
     ./faugus
     ./dolphin-emu
   ];

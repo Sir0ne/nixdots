@@ -14,12 +14,14 @@
   services.ratbagd.enable = true;
 
   imports = [
-    ../../modules/nixos/steam
-    ../../modules/nixos/syncthing
-    ../../modules/nixos/desktops/river
+    ./modules/nixos
     #   Turn desktops into toggles down the line
     inputs.stylix.nixosModules.stylix
   ];
+
+  desktops = {
+    wayfire.enable = false;
+  };
 
   programs.obs-studio = {
     enable = true;
@@ -30,11 +32,6 @@
       obs-gstreamer
       obs-vkcapture
     ];
-  };
-
-  programs.hyprland = {
-    withUWSM = true;
-    enable = true;
   };
 
   stylix = {
@@ -80,7 +77,6 @@
     };
   };
 
-  # Services [ Graphics, Audio, Video, Networking ]
   services = {
     flatpak.enable = true;
   };
@@ -97,7 +93,6 @@
       git.enable = true;
       nixcord.enable = true;
       nvim.enable = true;
-      hyprland.enable = true;
       prismlauncher.enable = true;
     };
     config.home.packages = with pkgs; [

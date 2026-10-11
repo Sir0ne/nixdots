@@ -9,15 +9,14 @@ let
   cfg = config.modules.kitty;
 in
 {
+  imports = [
+    ./kanshi.nix
+  ];
+
   options.modules.river = {
     enable = mkEnableOption "river";
   };
   config = mkIf cfg.enable {
-    wayland.windowManager.river = {
-      enable = true;
-      systemd.enable = false;
-      package = null;
-    };
 
     xdg.configFile."beansprout/config.kdl".source = ./beansprout/config.kdl;
   };

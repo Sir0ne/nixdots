@@ -10,17 +10,15 @@
     xwayland.enable = true;
   };
 
-  programs.uwsm = {
-    enable = true;
-
-    waylandCompositors.river = {
-      prettyName = "River";
-      comment = "River compositor managed under UWSM";
-      binPath = "${pkgs.river}/bin/river";
-    };
-  };
-
   xdg.portal.enable = true;
+  xdg.portal.wlr.enable = true;
+
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "wlr";
+    XDG_SESSION_DESKTOP = "river";
+    SDL_VIDEODRIVER = "wayland,x11";
+    QT_QPA_PLATFORM = "wayland";
+  };
 
   hardware = {
     graphics = {
@@ -44,10 +42,6 @@
     config.modules = {
       river.enable = true;
       fuzzel.enable = true;
-      waybar.enable = true;
     };
-    config.home.packages = with pkgs; [
-      foot
-    ];
   };
 }

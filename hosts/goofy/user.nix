@@ -32,6 +32,11 @@
     ];
   };
 
+  programs.hyprland = {
+    withUWSM = true;
+    enable = true;
+  };
+
   stylix = {
     enable = true;
     icons = {
@@ -92,6 +97,7 @@
       git.enable = true;
       nixcord.enable = true;
       nvim.enable = true;
+      hyprland.enable = true;
       prismlauncher.enable = true;
     };
     config.home.packages = with pkgs; [

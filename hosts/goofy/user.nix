@@ -14,13 +14,14 @@
   services.ratbagd.enable = true;
 
   imports = [
-    ./modules/nixos
+    ../../modules/nixos
     #   Turn desktops into toggles down the line
     inputs.stylix.nixosModules.stylix
   ];
 
   desktops = {
     wayfire.enable = false;
+    river.enable = true;
   };
 
   programs.obs-studio = {
@@ -42,7 +43,7 @@
       dark = "Adwaita";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/moonlight.yaml";
     image = ../../assets/backgrounds/Mountain.png;
     cursor = {
       name = "Bibata-Modern-Classic";

@@ -13,7 +13,6 @@ in
   imports = [
     ./waybar.nix
     ./wcm.nix
-    ./mako.nix
     ./wallpaper.nix
     ./packages.nix
   ];

@@ -27,6 +27,9 @@ focus_on_send if_visible
 focus_next_direction next
 // XCursor theme name; size in pixels is optional (default: 24)
 // cursor_theme "Adwaita" 24
+
+wallpaper_image_path "/home/goofy/Pictures/nord.png"
+
 borders {
     width 2
     // 8 or 10 digit hex color

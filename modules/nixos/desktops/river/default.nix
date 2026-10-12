@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   inputs,
   lib,
   ...
@@ -9,7 +10,7 @@ let
   cfg = config.desktops.river;
 in
 {
-  options.dekstops.river = {
+  options.desktops.river = {
     enable = mkEnableOption "River";
   };
 

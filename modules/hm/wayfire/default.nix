@@ -9,14 +9,6 @@ let
   cfg = config.modules.wayfire;
 in
 {
-
-  imports = [
-    ./waybar.nix
-    ./wcm.nix
-    ./wallpaper.nix
-    ./packages.nix
-  ];
-
   options.modules.wayfire = {
     enable = mkEnableOption "Wayfire";
   };

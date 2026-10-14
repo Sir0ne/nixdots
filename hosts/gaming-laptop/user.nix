@@ -35,7 +35,7 @@
       dark = "Adwaita";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
     image = ../../assets/backgrounds/Mountain.png;
     cursor = {
       name = "Bibata-Modern-Classic";
@@ -80,7 +80,10 @@
       kitty.enable = true;
       git.enable = true;
       nixcord.enable = true;
-      prismlauncher.enable = true;
+      nvim.enable = true;
     };
+    config.home.packages = with pkgs; [
+      prismlauncher
+    ];
   };
 }

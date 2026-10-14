@@ -60,6 +60,7 @@ in
       config.modules = {
         river.enable = true;
         fuzzel.enable = true;
+        waybar.enable = true;
       };
     };
   };

@@ -94,7 +94,6 @@
       git.enable = true;
       nixcord.enable = true;
       nvim.enable = true;
-      prismlauncher.enable = true;
     };
     config.home.packages = with pkgs; [
       r2modman

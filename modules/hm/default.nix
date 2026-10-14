@@ -14,7 +14,6 @@
     ./nvim
     ./games/retroarch
     ./games/pcsx
-    ./games/prismlauncher
     ./faugus
     ./dolphin-emu
   ];

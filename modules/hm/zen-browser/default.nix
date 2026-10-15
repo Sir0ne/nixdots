@@ -16,6 +16,7 @@ in
     enable = mkEnableOption "zen browser";
   };
   config = mkIf cfg.enable {
+    stylix.targets.zen-browser.profileNames = [ "user" ];
     programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;

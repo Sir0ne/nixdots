@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 with lib;
@@ -110,18 +109,78 @@ in
     programs.waybar = {
       enable = true;
       systemd.enable = false;
-      settings = [
-        {
-          mainBar = {
-            layer = "overlay";
-            position = "top";
-            height = 16;
-            modules-left = [ "river/tags" ];
-            modules-center = [ "clock" ];
-            modules-right = [ "tray" ];
+      settings.mainBar = {
+        layer = "top";
+        position = "top";
+
+        spacing = 5;
+        margin-top = 3;
+        margin-left = 4;
+        margin-right = 4;
+        height = 24;
+        width = 520;
+        exclusive = false;
+
+        modules-left = [ "custom/icon" ];
+        modules-center = [ "clock" ];
+        modules-right = [
+          "pulseaudio"
+          "battery"
+        ];
+
+        "custom/icon" = {
+          format = " ";
+        };
+
+        battery = {
+          format = "{icon}";
+          format-icons.default = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
+          format-icons.charging = "󰚥";
+        };
+
+        pulseaudio = {
+          format = "{icon}";
+          format-muted = "";
+          format-icons = {
+            headphones = "";
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
-        }
-      ];
+        };
+
+        tray = {
+          tooltip = false;
+          spacing = 10;
+        };
+      };
+
+      style = ''
+                                * {
+                        	  border: none;
+                        	  min-height: 0;
+                        	}
+
+                        	window#waybar {
+                        	  background: transparent;
+                        	}
+
+                        	window#waybar > box {
+                		background: alpha(@base00, 0.92);
+        			border: 2px solid alpha(@base0D, 0.47);
+                        	border-radius: 0;
+                        	padding: 0 14px;
+                        	margin: 0;
+                        	}
+      '';
     };
   };
 }

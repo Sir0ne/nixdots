@@ -1,10 +1,15 @@
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 {
   imports = [
     inputs.stylix.nixosModules.stylix
     ../../modules/nixos
   ];
- 
+
   modules = {
     steam.enable = true;
   };
@@ -44,12 +49,15 @@
     };
   };
 
-  boot.kernel.sysctl = { 
-    "vm.max_map_count" = 2147483642; 
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 2147483642;
   };
 
   networking.wireless.iwd.enable = true;
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];  
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
 
   hardware = {
     nvidia = {
@@ -57,7 +65,7 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       open = true;
-      
+
       prime = {
         offload = {
           enable = true;
@@ -82,8 +90,5 @@
       nixcord.enable = true;
       nvim.enable = true;
     };
-    config.home.packages = with pkgs; [
-      prismlauncher
-    ];
   };
 }

@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib;
@@ -108,7 +109,7 @@ in
 
     programs.waybar = {
       enable = true;
-      systemd.enable = false;
+      systemd.enable = true;
       settings.mainBar = {
         layer = "top";
         position = "top";
@@ -121,9 +122,13 @@ in
         width = 520;
         exclusive = false;
 
-        modules-left = [ "custom/icon" ];
+        modules-left = [
+          "custom/icon"
+          "wlr/taskbar"
+        ];
         modules-center = [ "clock" ];
         modules-right = [
+          "tray"
           "pulseaudio"
           "battery"
         ];
@@ -181,6 +186,20 @@ in
                         	margin: 0;
                         	}
       '';
+    };
+
+    programs.fuzzel = {
+      enable = true;
+      settings = {
+        main = {
+          terminal = "${pkgs.kitty}/bin/kitty";
+        };
+        border = {
+          width = 2;
+          radius = 0;
+          selection-radius = 0;
+        };
+      };
     };
   };
 }

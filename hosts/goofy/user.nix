@@ -8,7 +8,8 @@
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
     pavucontrol
-    piper
+    easyeffects
+    mpv
   ];
 
   services.ratbagd.enable = true;
@@ -43,7 +44,7 @@
       dark = "Adwaita";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/moonlight.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
     image = ../../assets/backgrounds/Mountain.png;
     cursor = {
       name = "Bibata-Modern-Classic";
@@ -97,6 +98,11 @@
     };
     config.home.packages = with pkgs; [
       r2modman
+      prismlauncher
+      osu-lazer-bin
+      concord-tui
+      kew
     ];
+    config.programs.concord.enable = true;
   };
 }

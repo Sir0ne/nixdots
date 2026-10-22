@@ -16,5 +16,6 @@
     ./games/pcsx
     ./faugus
     ./dolphin-emu
+    ./fastfetch
   ];
 }

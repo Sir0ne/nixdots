@@ -20,15 +20,14 @@ in
 
   config = mkIf cfg.enable {
 
+    nixpkgs.overlays = [ (final: prev: { zig = prev.zig_0_16; }) ];
+
     programs.river-next = {
       enable = true;
 
       # Currently configured: beansprout,
       windowManagers = [ "beansprout" ];
       xwayland.enable = true;
-      package = pkgs.callPackage "${inputs.river-next}/river-next.nix" {
-        zig = pkgs.zig_0_16;
-      };
     };
 
     xdg.portal.enable = true;

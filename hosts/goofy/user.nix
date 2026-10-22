@@ -93,8 +93,9 @@
       zen-browser.enable = true;
       kitty.enable = true;
       git.enable = true;
-      nixcord.enable = true;
+      nixcord.enable = false;
       nvim.enable = true;
+      fastfetch.enable = true;
     };
     config.home.packages = with pkgs; [
       r2modman

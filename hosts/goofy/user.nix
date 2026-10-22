@@ -6,13 +6,11 @@
 {
 
   environment.systemPackages = with pkgs; [
-    adwaita-icon-theme
+    papirus-icon-theme
     pavucontrol
     easyeffects
     mpv
   ];
-
-  services.ratbagd.enable = true;
 
   imports = [
     ../../modules/nixos
@@ -20,28 +18,14 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  desktops = {
-    wayfire.enable = false;
-    river.enable = true;
-  };
-
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-pipewire-audio-capture
-      obs-vaapi
-      obs-gstreamer
-      obs-vkcapture
-    ];
-  };
+  desktops.river.enable = true;
 
   stylix = {
     enable = true;
     icons = {
-      package = pkgs.adwaita-icon-theme;
-      light = "Adwaita";
-      dark = "Adwaita";
+      package = pkgs.papirus-icon-theme;
+      light = "Papirus";
+      dark = "Papirus";
     };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
@@ -52,12 +36,6 @@
       size = 24;
     };
   };
-
-  programs.noisetorch.enable = true;
-  systemd.user.services.pipewire.serviceConfig.Environment =
-    "LADSPA_PATH=/tmp:/usr/lib64/ladspa:/usr/lib/ladspa:";
-  systemd.user.services.pipewire-pulse.serviceConfig.Environment =
-    "LADSPA_PATH=/tmp:/usr/lib64/ladspa:/usr/lib/ladspa:";
 
   modules = {
     steam.enable = true;
@@ -93,7 +71,7 @@
       zen-browser.enable = true;
       kitty.enable = true;
       git.enable = true;
-      nixcord.enable = false;
+      concord.enable = true;
       nvim.enable = true;
       fastfetch.enable = true;
     };
@@ -101,9 +79,7 @@
       r2modman
       prismlauncher
       osu-lazer-bin
-      concord-tui
       kew
     ];
-    config.programs.concord.enable = true;
   };
 }

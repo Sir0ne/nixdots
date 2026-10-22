@@ -17,5 +17,6 @@
     ./faugus
     ./dolphin-emu
     ./fastfetch
+    ./concord
   ];
 }

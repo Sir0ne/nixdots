@@ -193,6 +193,8 @@ in
       settings = {
         main = {
           terminal = "${pkgs.kitty}/bin/kitty";
+          icon-theme = "Papirus";
+          icons-enable = true;
         };
         border = {
           width = 2;

@@ -65,7 +65,7 @@
 
   security.rtkit.enable = true;
 
-  # Home manager packages and configs
+  # Home manager packages and modules
   home-manager.users.goofy = {
     config.modules = {
       zen-browser.enable = true;

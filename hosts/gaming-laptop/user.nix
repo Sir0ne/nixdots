@@ -87,7 +87,6 @@
       zen-browser.enable = true;
       kitty.enable = true;
       git.enable = true;
-      nixcord.enable = true;
       nvim.enable = true;
     };
   };

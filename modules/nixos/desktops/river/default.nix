@@ -61,7 +61,6 @@ in
     home-manager.users.goofy = {
       config.modules = {
         river.enable = true;
-        fuzzel.enable = true;
       };
     };
   };

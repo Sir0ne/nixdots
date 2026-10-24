@@ -15,7 +15,7 @@
             criteria = "HDMI-A-1";
             mode = "1920x1080@180Hz";
             position = "0,0";
-            adaptiveSync = true;
+            adaptiveSync = false;
           }
         ];
       }

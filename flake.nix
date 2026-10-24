@@ -27,7 +27,8 @@
       flake = false;
     };
 
-    nixcord.url = "github:4evy/nixcord";
+    grimoire.url = "github:Slush97/grimoire";
+
   };
 
   outputs =

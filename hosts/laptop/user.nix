@@ -94,7 +94,6 @@
       fuzzel.enable = true;
       kitty.enable = true;
       git.enable = true;
-      vesktop.enable = true;
       stylix.enable = true;
       waybar.enable = true;
       hyprland.enable = true;

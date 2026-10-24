@@ -8,7 +8,6 @@
     ./fuzzel
     ./kitty
     ./git
-    ./nixcord
     ./waybar
     ./fish
     ./nvim

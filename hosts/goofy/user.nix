@@ -1,15 +1,20 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
+  nixpkgs.overlays = [ inputs.grimoire.overlays.default ];
 
   environment.systemPackages = with pkgs; [
     papirus-icon-theme
     pavucontrol
     easyeffects
     mpv
+    grimoire
+    winetricks
+    wineWow64Packages.waylandFull
   ];
 
   imports = [
@@ -62,8 +67,17 @@
   };
 
   networking.networkmanager.enable = true;
-
   security.rtkit.enable = true;
+  boot = {
+    kernelParams = [
+      "quiet"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+    ];
+    consoleLogLevel = 3;
+
+    loader.timeout = lib.mkForce 0;
+  };
 
   # Home manager packages and modules
   home-manager.users.goofy = {
@@ -74,12 +88,14 @@
       concord.enable = true;
       nvim.enable = true;
       fastfetch.enable = true;
+      qobine-tui.enable = true;
     };
     config.home.packages = with pkgs; [
       r2modman
       prismlauncher
       osu-lazer-bin
       kew
+      tuxedo
     ];
   };
 }

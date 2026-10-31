@@ -65,7 +65,10 @@ pointer_binds {
     move_window Mod4 BTN_LEFT
     resize_window Mod4 BTN_RIGHT
 }
-
+bar {
+  position top
+  time_format "%H:%M"
+}
 keyboard_layout {
     layout "us"
     options "compose:rctrl"

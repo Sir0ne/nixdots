@@ -25,6 +25,7 @@ in
         exec = "${pkgs.concord-tui}/bin/concord";
         genericName = "Chat App";
         name = "Concord";
+        icon = "discord";
         terminal = true;
       };
     };

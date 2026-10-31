@@ -13,9 +13,8 @@
     ./nvim
     ./games/retroarch
     ./games/pcsx
-    ./faugus
-    ./dolphin-emu
     ./fastfetch
     ./concord
+    ./qobine
   ];
 }

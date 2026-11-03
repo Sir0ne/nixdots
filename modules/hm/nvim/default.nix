@@ -16,77 +16,57 @@ in
   config = mkIf cfg.enable {
     programs.neovim = {
       enable = true;
-      defaultEditor = true;
+
       viAlias = true;
       vimAlias = true;
+      vimdiffAlias = true;
+      waylandSupport = true;
 
-      plugins = with pkgs.vimPlugins; [
-        nvim-lspconfig
-        nvim-cmp
-        cmp-nvim-lsp
-        cmp-buffer
-        cmp-path
-        luasnip
-        cmp_luasnip
-        friendly-snippets
-        plenary-nvim
-        telescope-nvim
-        nvim-treesitter
+      extraPackages = with pkgs; [
+        nixd
+	nixfmt
+	rust-analyzer
+	clippy
       ];
 
-      extraLuaConfig = ''
-                                        local lspconfig = require("lspconfig")
-                                	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-                        		local cmp = require("cmp")
-                        		
-                        		cmp.setup({
-                        		  mapping = cmp.mapping.preset.insert({
-                        		    ["<C-Space>"] = cmp.mapping.complete(),
-                        		    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                        		  }),
-                        		  sources = {
-                        		    { name = "nvim_lsp" },
-                        		    { name = "buffer" },
-                        		    { name = "path" },
-                        		  },
-                        		})
+      plugins = with pkgs.vimPlugins; [
+	nvim-lspconfig
+	friendly-snippets
+	{
+	  plugin = blink-cmp;
+	  type = "lua";
+	  config = ''
+	    require('blink.cmp').setup({
+	      keymap = { preset = 'enter' },
+	      sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
+	    })
+	  '';
+	}
+      ];
 
-                                	lspconfig.clangd.setup({
-                                	  capabilities = capabilities,
-                                	  cmd = { "clangd", "--background-index", "--clang-tidy" },
-                                	})
+      initLua = ''
+        -- NIX LSP --
+        vim.lsp.config('nixd', {
+	  settings = {
+	    nixd = {
+	      nixpkgs = { expr = 'import <nixpkgs> { }' },
+	      formatting = { command = { 'nixfmt' } },
+	      options = {
+		nixos = {
+		  expr = '(builtins.getFlake "/home/goofy/dotfiles").nixosConfigurations.goofy.options',
+		},
+	      },
+	    },
+	  },
+	})
+	vim.lsp.enable('nixd')
 
-                                	lspconfig.nixd.setup({
-                                	  capabilities = capabilities,
-        				})
-
-                                	vim.api.nvim_create_autocmd("BufWritePre", {
-                                          pattern = "*.nix",
-                                	  callback = function()
-                                	    vim.lsp.buf.format({ async = false })
-                                	  end,
-                                	})
-
-                                	vim.api.nvim_create_autocmd("LspAttach", {
-                                	  callback = function(event)
-                                	    local opts = { buffer = event.buf }
-                                	    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-                                	    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-                                	    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-                                	    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-                                	  end,
-                                	})
+	-- RUST LSP --
+	vim.lsp.config('rust_analyzer', {
+	  capabilities = require('blink.cmp').get_lsp_capabilities(),
+	})
+	vim.lsp.enable('rust_analyzer')
       '';
     };
-
-    home.packages = with pkgs; [
-      clang-tools
-      gcc
-      cmake
-      ninja
-      gdb
-      nixd
-      nixfmt
-    ];
   };
 }

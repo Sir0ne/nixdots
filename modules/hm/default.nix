@@ -11,8 +11,6 @@
     ./waybar
     ./fish
     ./nvim
-    ./games/retroarch
-    ./games/pcsx
     ./fastfetch
     ./concord
     ./qobine

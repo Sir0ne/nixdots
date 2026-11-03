@@ -105,7 +105,14 @@ in
 
     '';
 
-    services.fnott.enable = true;
+    services.fnott = {
+      enable = true;
+      settings = {
+        low = {
+          timeout = 12;
+        };
+      };
+    };
 
     programs.waybar = {
       enable = true;

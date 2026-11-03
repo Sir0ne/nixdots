@@ -91,11 +91,10 @@
       qobine-tui.enable = true;
     };
     config.home.packages = with pkgs; [
-      r2modman
       prismlauncher
-      osu-lazer-bin
       kew
       tuxedo
+      blender
     ];
   };
 }

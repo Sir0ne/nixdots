@@ -21,6 +21,18 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.package = [ cfg.package ];
+    home.packages = [ cfg.package ];
+
+    xdg.desktopEntries = {
+      qobine = {
+        categories = [
+          "Music"
+        ];
+        exec = "qobine-tui";
+        genericName = "Music Streaming";
+        name = "Qobine";
+        terminal = true;
+      };
+    };
   };
 }

@@ -89,6 +89,7 @@
       nvim.enable = true;
       fastfetch.enable = true;
       qobine-tui.enable = true;
+      obs.enable = true;
     };
     config.home.packages = with pkgs; [
       prismlauncher

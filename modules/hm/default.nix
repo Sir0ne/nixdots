@@ -14,5 +14,6 @@
     ./fastfetch
     ./concord
     ./qobine
+    ./obs
   ];
 }

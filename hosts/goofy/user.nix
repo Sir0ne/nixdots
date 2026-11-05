@@ -19,12 +19,12 @@
 
   imports = [
     ../../modules/nixos
-    #   Turn desktops into toggles down the line
     inputs.stylix.nixosModules.stylix
   ];
-
+  # Desktops modules
   desktops.river.enable = true;
 
+  # Rice
   stylix = {
     enable = true;
     icons = {
@@ -42,6 +42,7 @@
     };
   };
 
+  # NixOS sys modules
   modules = {
     steam.enable = true;
     syncthing.enable = true;

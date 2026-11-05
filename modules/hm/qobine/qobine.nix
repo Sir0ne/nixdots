@@ -19,10 +19,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-/BasGIAfVcE43OFB1gz290UTwvxUQcelalLMgYy6InQ=";
   };
 
-  # No git dependencies, so the repo's own lockfile is enough (no cargoHash).
   cargoLock.lockFile = "${finalAttrs.src}/Cargo.lock";
 
-  # Build only the terminal UI, not the web / rfid / gtk / connect players.
   buildAndTestSubdir = "tui-module";
   cargoBuildFlags = [
     "--package"
@@ -31,19 +29,17 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "qobine-tui"
   ];
 
-  # sqlx's query! macros use the checked-in metadata in player-module/.sqlx
-  # instead of needing a live database at build time.
   env.SQLX_OFFLINE = "true";
 
   nativeBuildInputs = [
     pkg-config
-    cmake # only for aws-lc-sys's build script
+    cmake
   ];
   dontUseCmakeConfigure = true;
 
   buildInputs = [
-    alsa-lib # audio output (rodio/cpal)
-    openssl # native-tls
+    alsa-lib
+    openssl
   ];
 
   doCheck = false;

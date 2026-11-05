@@ -1,20 +1,25 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.vesktop;
-in {
-  options.modules.vesktop = {enable = mkEnableOption "vesktop";};
+in
+{
+  options.modules.vesktop = {
+    enable = mkEnableOption "vesktop";
+  };
   config = mkIf cfg.enable {
     programs.vesktop = {
       enable = true;
       vencord.settings = {
         font = "Helvetica";
       };
-      settings = {font = "Helvetica";};
+      settings = {
+        font = "Helvetica";
+      };
       vencord.extraQuickCss = ''
         :root {
           /* Force ONLY Helvetica. If you include gg sans here, ligatures will break */

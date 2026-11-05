@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 with lib;
@@ -16,7 +15,6 @@ in
   config = mkIf cfg.enable {
     home.packages = [
       pkgs.dolphin-emu
-      pkgs.wheelwizard
     ];
   };
 }

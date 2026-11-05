@@ -59,6 +59,7 @@ in
       keybinds {
           spawn Mod4 T kitty
           spawn Mod4 R fuzzel
+	  spawn Mod4+Shift S obs-save-replay
           focus_next_window Mod4 J
           focus_prev_window Mod4 K
           focus_next_output Mod4 Period
@@ -89,6 +90,7 @@ in
           tag_bind Mod4+Shift set_window_tags
           tag_bind Mod4+Ctrl toggle_output_tags
           tag_bind Mod4+Ctrl+Shift toggle_window_tags
+
       }
       pointer_binds {
           move_window Mod4 BTN_LEFT
@@ -108,9 +110,12 @@ in
     services.fnott = {
       enable = true;
       settings = {
-        low = {
-          timeout = 12;
-        };
+	low = {
+	  timout = 12;
+	};
+	critical = {
+	  timout = 24;
+	};
       };
     };
 

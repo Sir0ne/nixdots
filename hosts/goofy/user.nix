@@ -83,6 +83,7 @@
   home-manager.users.goofy = {
     config.modules = {
       zen-browser.enable = true;
+      fish.enable = true;
       kitty.enable = true;
       git.enable = true;
       concord.enable = true;

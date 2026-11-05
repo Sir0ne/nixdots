@@ -16,7 +16,12 @@ in
       enable = true;
       shellAliases = {
         nrg = "doas nixos-rebuild switch --flake ~/dotfiles#goofy";
+        cd-nix = "cd ~/dotfiles/";
       };
+      plugins = with pkgs.fishPlugins; [
+        tide
+        done
+      ];
     };
   };
 }

@@ -15,5 +15,6 @@
     ./concord
     ./qobine
     ./obs
+    ./amethyst
   ];
 }

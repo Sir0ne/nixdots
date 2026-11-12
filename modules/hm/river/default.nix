@@ -17,7 +17,7 @@ in
   options.modules.river = {
     enable = mkEnableOption "river";
   };
-
+  # CONFIGURATION FILE
   config = mkIf cfg.enable {
     xdg.configFile."beansprout/config.kdl".text = ''
             attach_mode top
@@ -107,20 +107,20 @@ in
 
     '';
 
+    # FNOTT NOTIFS
     services.fnott = {
       enable = true;
       settings = {
-        low = {
-          default-timeout = 16;
-          idle-timeout = 16;
-        };
-        critical = {
-          default-timeout = 16;
-          idle-timeout = 16;
+        main = {
+          layer = "overlay";
+          default-timeout = 3;
+          max-timeout = 3;
+          output = "HDMI-A-1";
         };
       };
     };
 
+    # DISPLAY BAR
     programs.waybar = {
       enable = true;
       systemd.enable = true;
@@ -202,6 +202,7 @@ in
       '';
     };
 
+    # SEARCH BAR
     programs.fuzzel = {
       enable = true;
       settings = {

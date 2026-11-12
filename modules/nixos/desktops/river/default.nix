@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   inputs,
   lib,
@@ -48,6 +47,7 @@ in
     };
 
     services = {
+      displayManager.ly.enable = true;
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -55,7 +55,6 @@ in
         pulse.enable = true;
         wireplumber.enable = true;
       };
-      displayManager.ly.enable = true;
     };
 
     home-manager.users.goofy = {

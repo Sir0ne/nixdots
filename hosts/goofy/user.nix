@@ -15,6 +15,7 @@
     grimoire
     winetricks
     wineWow64Packages.waylandFull
+    steam-run
   ];
 
   imports = [
@@ -92,6 +93,7 @@
       fastfetch.enable = true;
       qobine-tui.enable = true;
       obs.enable = true;
+      amethyst.enable = true;
     };
     config.home.packages = with pkgs; [
       prismlauncher

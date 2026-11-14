@@ -19,8 +19,6 @@ in
 
   config = mkIf cfg.enable {
 
-    nixpkgs.overlays = [ (final: prev: { zig = prev.zig_0_16; }) ];
-
     programs.river-next = {
       enable = true;
 

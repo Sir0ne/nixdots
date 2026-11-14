@@ -1,5 +1,3 @@
-# Home Manager module. Put it next to your home.nix and add it to `imports`:
-#   imports = [ ./amethyst-hm.nix ];   # inside your home-manager config
 {
   pkgs,
   lib,
@@ -50,9 +48,6 @@ let
         tag = "v${finalAttrs.version}";
         hash = "sha256-uF7B/lJIy96d9yKMLP/80FR5LgyX34MnxarMlSvx2Y0=";
       };
-
-      # Omitted: ./disable-update-notifications.diff (not available outside nixpkgs).
-      # The in-app update notifier simply stays enabled.
 
       postPatch = ''
         patchShebangs src/version.py
@@ -107,7 +102,6 @@ let
       dependencies =
         with python3Packages;
         [
-          # requirements-vendor.txt
           py7zr
           rarfile
           pillow
@@ -123,7 +117,6 @@ let
           secretstorage
           certifi
           xxhash
-          # base
           pyside6
         ]
         ++ lib.optional withLoot libloot;
@@ -139,18 +132,18 @@ let
       runtimeInputs = [
         _7zz
         bash
-        bubblewrap # bwrap
+        bubblewrap
         curl
         ffmpeg-headless
-        fuse-overlayfs # non-nixos
-        glib # gio, gdbus
-        libarchive # bsdtar
+        fuse-overlayfs
+        glib
+        libarchive
         me3
-        steam-run # needed on NixOS to run the Wine/Proton runner
-        umu-launcher # umu-run
-        util-linux # flock, ionice, mountpoint
-        vgmstream # vgmstream-cli
-        xdg-utils # xdg-open, xdg-mime, xdg-settings
+        steam-run
+        umu-launcher
+        util-linux
+        vgmstream
+        xdg-utils
       ];
 
       versionCheckProgram = "${placeholder "out"}/bin/amethyst-mod-manager-cli";

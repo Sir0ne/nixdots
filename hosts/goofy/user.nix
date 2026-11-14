@@ -78,7 +78,7 @@
     ];
     consoleLogLevel = 3;
 
-    loader.timeout = lib.mkForce 0;
+    loader.timeout = lib.mkForce 4;
   };
 
   # Home manager packages and modules
@@ -91,7 +91,7 @@
       concord.enable = true;
       nvim.enable = true;
       fastfetch.enable = true;
-      qobine-tui.enable = true;
+      qobine-tui.enable = false;
       obs.enable = true;
       amethyst.enable = true;
     };

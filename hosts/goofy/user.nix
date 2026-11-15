@@ -81,6 +81,9 @@
     loader.timeout = lib.mkForce 4;
   };
 
+  # for x68he
+  hardware.keyboard.qmk.enable = true;
+
   # Home manager packages and modules
   home-manager.users.goofy = {
     config.modules = {

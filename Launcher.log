@@ -1,9 +1,0 @@
-[16/11/2026 23:22:48] [DEBUG] Launcher was invoked as: 'BeamMP-Launcher --no-launch'
-[16/11/2026 23:22:48] [INFO] BeamMP Launcher v2.8.1
-[16/11/2026 23:22:51] [INFO] Launcher version is up to date. Latest version: 2.8.1
-[16/11/2026 23:22:51] [INFO] IMPORTANT: You MUST keep this window open to play BeamMP!
-[16/11/2026 23:22:51] [ERROR] The game directory was not found.
-[16/11/2026 23:22:51] [ERROR] Exception in main(): filesystem error: cannot get file size: No such file or directory [integrity.json]
-[16/11/2026 23:22:51] [INFO] Closing in 5 seconds
-[16/11/2026 23:22:51] [INFO] If this keeps happening, contact us on either: Forum: https://forum.beammp.com, Discord: https://discord.gg/beammp
-[16/11/2026 23:22:51] [DEBUG] HTTP Proxy listening on port 40653

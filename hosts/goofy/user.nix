@@ -13,9 +13,9 @@
     easyeffects
     mpv
     grimoire
+    wineWow64Packages.full
     winetricks
-    wineWow64Packages.waylandFull
-    steam-run
+    beammp-launcher
   ];
 
   imports = [
@@ -81,7 +81,6 @@
     loader.timeout = lib.mkForce 4;
   };
 
-  # for x68he
   hardware.keyboard.qmk.enable = true;
 
   # Home manager packages and modules
@@ -103,6 +102,8 @@
       kew
       tuxedo
       blender
+      protonplus
+      btop
     ];
   };
 }

@@ -15,6 +15,7 @@
     grimoire
     wineWow64Packages.full
     winetricks
+    steamtinkerlaunch
     beammp-launcher
   ];
 

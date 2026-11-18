@@ -1,0 +1,30 @@
+[17/11/2026 17:46:10] [INFO] Mod caching directory: ./Resources
+[17/11/2026 17:46:10] [DEBUG] Launcher was invoked as: 'BeamMP-Launcher --no-launch'
+[17/11/2026 17:46:10] [INFO] BeamMP Launcher v2.8.1
+[17/11/2026 17:46:10] [INFO] Launcher version is up to date. Latest version: 2.8.1
+[17/11/2026 17:46:10] [INFO] IMPORTANT: You MUST keep this window open to play BeamMP!
+[17/11/2026 17:46:10] [DEBUG] HTTP Proxy listening on port 37077
+[17/11/2026 17:46:10] [INFO] Game Version : 0.40.5.0
+[17/11/2026 17:46:10] [INFO] Game user path: /home/goofy/.local/share/BeamNG/BeamNG.drive/current/
+[17/11/2026 17:46:10] [DEBUG] Core Network on start! port: 4444
+[17/11/2026 17:46:21] [INFO] Game Connected!
+[17/11/2026 18:20:35] [INFO] Attempting to authenticate...
+[17/11/2026 18:20:36] [INFO] Authentication successful!
+[17/11/2026 18:20:36] [DEBUG] Authentication result: Authentication Successful. Welcome ToadHug
+[17/11/2026 18:20:45] [INFO] Connecting to server
+[17/11/2026 18:20:45] [DEBUG] MAIN LOOP OF GAME SERVER
+[17/11/2026 18:20:45] [INFO] Connected!
+[17/11/2026 18:20:47] [DEBUG] Mod info: []
+[17/11/2026 18:20:47] [INFO] Done!
+[17/11/2026 18:22:40] [ERROR] Error while receiving from game on core: Game disconnected
+[17/11/2026 18:22:40] [DEBUG] (Core) Connection closing
+[17/11/2026 18:22:40] [DEBUG] Terminating TCP Socket: 24
+[17/11/2026 18:22:40] [DEBUG] Terminating GTCP Socket: 21
+[17/11/2026 18:22:40] [WARN] Game Reconnecting...
+[17/11/2026 18:22:40] [DEBUG] (TCP) Connection closing...
+[17/11/2026 18:22:40] [DEBUG] Tried to call GameSend but socket was not connected. Data: T
+[17/11/2026 18:22:40] [DEBUG] Kill socket got -1 returning...
+[17/11/2026 18:22:40] [DEBUG] (Proxy) accept failed with error: 22
+[17/11/2026 18:22:40] [DEBUG] Waiting for client thread
+[17/11/2026 18:22:40] [DEBUG] Client thread done
+[17/11/2026 18:22:40] [DEBUG] END OF GAME SERVER

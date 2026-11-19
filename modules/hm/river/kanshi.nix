@@ -7,21 +7,11 @@
         profile.name = "desktop";
         profile.outputs = [
           {
-            criteria = "DP-2";
-            mode = "1920x1080@120Hz";
-            position = "1920,0";
-          }
-          {
-            criteria = "DP-1";
+            criteria = "Shenzhen KTC Technology Group H24T7 0x00000001";
             mode = "2560x1440@180Hz";
             position = "0,0";
+            scale = 1.0;
             adaptiveSync = true;
-          }
-          {
-            criteria = "HDMI-A-1";
-            mode = "1920x1080@180Hz";
-            position = "0,0";
-            adaptiveSync = false;
           }
         ];
       }

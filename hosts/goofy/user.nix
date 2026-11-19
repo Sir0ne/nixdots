@@ -94,7 +94,7 @@
       concord.enable = true;
       nvim.enable = true;
       fastfetch.enable = true;
-      qobine-tui.enable = false;
+      qobine-tui.enable = true;
       obs.enable = true;
       amethyst.enable = true;
     };
